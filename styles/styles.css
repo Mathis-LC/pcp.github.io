@@ -39,7 +39,7 @@ table {
 tr, td {
   border:rgb(190, 189, 189) 0.1em solid;
 }
-nav { 
+div { 
   background-color: rgb(46, 46, 46);
   border : rgb(190, 189, 189) 0.1em solid;
 }
@@ -47,33 +47,28 @@ aside {
   background-color: rgb(46, 46, 46);
   border : rgb(190, 189, 189) 0.1em solid;
 }
-nav ul, aside ul {
+div ul, aside ul {
     padding: 0.5em;
     width:100%;
     margin: auto;
     list-style: none;
   }
-nav ul li, aside ul li {
+div ul li, aside ul li {
   text-align:left;
   display : inline-block;
   width:100%;
   cursor:pointer;
 }
-nav ul li a, aside ul li a {
+div ul li a, aside ul li a {
   text-decoration:none;
   color:rgb(255, 255, 255);
 }
-nav ul li a:hover, aside ul li a:hover {
-  font-size:1.1em;
+div ul li a:hover, aside ul li a:hover {
   background-color: rgb(28, 28, 28);
 }
 section ul {
   list-style: inside;
 }
-
-/* récupérées de W3C */
-
-/* Style the header */
 header {
   background-color: rgb(46, 46, 46);
   padding: 30px;
@@ -82,27 +77,22 @@ header {
   background-position: center; 
   background-repeat: repeat-x;
   border-radius:0.5em;
-  margin-bottom:0.5em;
+  margin-bottom:24px;
 }
-/* Create three unequal columns that floats next to each other */
-aside, nav, section {
+aside, div, section {
   float: left;
   padding: 10px;
 }
-/* Left and right column */
-aside, nav {
+aside, div {
   width: 20%;
   padding-bottom:3em;
   border-radius:0.5em;
 }
-/* Middle column */
 section {
   width: 60%;
   padding-right: 2em;
   padding-left: 2em;
 }
-/* Clear floats after the columns */
-/* Style the footer */
 footer {
   clear: both;
   background-color: rgb(229, 229, 229);
@@ -113,9 +103,6 @@ abbr {
     letter-spacing: 2px;
     cursor: help;
   }
-
-/* Addition to the CSS */
-
 #mentions_legales {
   color: rgb(46, 46, 46);
   background-color: rgb(229, 229, 229);
@@ -141,9 +128,45 @@ td.salles {
 a{
   color: rgb(255, 255, 255);
 }
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color:  rgb(28, 28, 28);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 1000;
+}
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+.navbar-menu a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.navbar-menu a:hover {
+  background-color: rgb(46, 46, 46);
+  color: rgb(255, 255, 255);
+}
+body {
+  margin-top: 80px;
+}
 @media (max-width: 700px) {
-  aside, nav, section {
+  aside, div, section {
     width: 100%;
   }
   #logoOrdi {

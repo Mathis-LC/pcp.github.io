@@ -37,7 +37,7 @@ pre {
   font-family: monospace;
   font-size: 1rem;
 }
-nav { 
+div { 
   background-color: #c8e4ea;
   border : #bebdbd 0.1em solid;
 }
@@ -45,23 +45,23 @@ aside {
   background-color: #c8e4ea;
   border : #bebdbd 0.1em solid;
 }
-nav ul, aside ul {
+div ul, aside ul {
     padding: 0.5em;
     width:100%;
     margin: auto;
     list-style: none;
   }
-nav ul li, aside ul li {
+div ul li, aside ul li {
   text-align:left;
   display : inline-block;
   width:100%; 
   cursor:pointer;
 }
-nav ul li a, aside ul li a {
+div ul li a, aside ul li a {
   text-decoration:none;
   color:#2E2E2E;
 }
-nav ul li a:hover, aside ul li a:hover {
+div ul li a:hover, aside ul li a:hover {
   font-size:1.1em;
   background-color: #2325a8;
   cursor:pointer;
@@ -93,12 +93,12 @@ header {
   margin-bottom:0.5em;
 }
 /* Create three unequal columns that floats next to each other */
-aside, nav, section {
+aside, div, section {
   float: left;
   padding: 10px;
 }
 /* Left and right column */
-aside, nav {
+aside, div {
   width: 20%;
   padding-bottom:3em;
   border-radius:0.5em;
@@ -138,7 +138,7 @@ td.salles {
 }
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 700px) {
-  aside, nav, section {
+  aside, div, section {
     width: 100%;
   }
   #logoOrdi {

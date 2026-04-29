@@ -2,6 +2,6 @@
 
 # https://github.com/Mathis-LC/pcp.github.io
 
-Porte-Feuille de compétences profesionnelles
+PorteFeuille de compétences profesionnelles
 
 pcp.github.io

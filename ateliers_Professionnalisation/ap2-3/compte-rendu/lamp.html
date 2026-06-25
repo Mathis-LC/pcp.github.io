@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu de la procédure d’installation</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="./lamp.html">LAMP</a>
+                                        <a class="navbar-item" href="./lepp.html">LEPP</a>
+                                        <a class="navbar-item" href="./lcip.html">LCIP</a>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                M1: Mise en production sous différents environnements
+            </h1>
+
+            <h1 class="title is-size-4 mt-6 mb-3">
+                LAMP : Linux (US24), Apache2, Mysql, PHP
+            </h1>
+
+            <div class="content">
+
+                <p>On créer une vm à partir du modèle us24 init ssh </p>
+
+                <p>Une fois la VM démarré on se connecte en SSH </p>
+
+                <p>Puis on modifie la configuration ip pour en mettre une qui est attribué à notre binôme</p>
+
+                <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code> </p>
+
+                    <pre><code><span class="hljs-attr">network:</span>
+                    <span class="hljs-attr">  ethernets:</span>
+                    <span class="hljs-attr">    enp3s0:</span>
+                    <span class="hljs-attr">      dhcp4:</span> <span class="hljs-literal">false</span>
+                    <span class="hljs-attr">      addresses:</span> [<span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.226</span>/<span class="hljs-number">24</span>]
+                    <span class="hljs-attr">      routes:</span>
+                    <span class="hljs-attr">       - to:</span> default
+                    <span class="hljs-attr">         via:</span> <span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.254</span>
+                    <span class="hljs-attr">      nameservers:</span>
+                    <span class="hljs-attr">        addresses:</span> [<span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.41</span>, <span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.42</span>]
+                    </code></pre>
+                
+                <br>
+
+                    <p><code>sudo netplan apply</code></p>
+
+                    <p><code>whereis apache2</code></p>
+
+                <p>Si non trouvé</p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install apache2</code></p>
+
+                <p>Pour mettre en place le firewall</p>
+
+                <p><code>whereis ufw</code></p>
+
+                <p>Si non trouvé</p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install ufw</code></p>
+
+                <p>Configurer les règles du firewall</p>
+
+                <p><code>sudo ufw enable</code></p>
+
+                <p><code>sudo ufw app list</code></p>
+
+                <p><code>sudo ufw allow &quot;Apache Full&quot;</code></p>
+
+                <p><code>sudo ufw allow OpenSSH</code> </p>
+
+                <p><code>sudo ufw status</code></p>
+
+                <p>Installer sur notre pc le fichier suivant : </p>
+
+                <p><em>Applifrais_static.zip</em> </p>
+
+                <p>Dans la VM</p>
+
+                <p><code>sudo mkdir /var/www/applifrais</code></p>
+
+                <p>Via sftp transférer <em>Applifrais_static.zip</em> vers <code>/home/stssio</code> </p>
+
+                <p><code>whereis unzip</code></p>
+
+                <p>Si non trouvé </p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install unzip</code></p>
+
+                <p>Puis</p>
+
+                <p><code>sudo cp -r ./Applifrais_static.zip /var/www/applifrais</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo unzip Applifrais_static.zip</code></p>
+
+                <p><code>cd /etc/apache2/sites-available/</code></p>
+
+                <p><code>sudo nano applifrais.conf</code></p>
+
+                <pre><code><span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> 100.115.29.226
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/applifrais
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/applifrais&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes
+
+                        <span class="hljs-comment"># Désactive les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> None
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>   
+                </code></pre>
+                
+                <p>Il ne faut pas oublier de fermer la balise <code>&lt;/VirtualHost&gt;</code></p>
+
+                <p><code>sudo apache2ctl configtest</code></p>
+
+                <p><em>AH00558: apache2: Could not reliably determine the server&#39;s fully qualified domain name, using 127.0.1.1. Set the &#39;ServerName&#39; directive globally to suppress this message</em>
+
+                <em>Syntax OK</em></p>
+
+                <p>La syntaxe est bonne mais il y a une erreur dans le fichier de configuration. Cependant cette erreur n&#39;est pas grave et n&#39;empêchera pas le serveur de fonctionner.</p>
+
+                <p><code>sudo a2ensite applifrais</code></p>
+
+                <p><code>sudo systemctl reload apache2.service</code></p>
+
+                <p><code>sudo a2dissite 000-default</code></p>
+
+                <p><code>sudo systemctl reload apache2.service</code></p>
+
+                <p><code>sudo apt install php libapache2-mod-php</code></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Quelle version de php a été installée ?</em> </p>
+
+                <p>PHP 8.3.6 </p>
+
+                <p>Pour savoir on fait <code>php -v</code></p>
+
+                <p><code>sudo a2enmod php8.3</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo rm -r Applifrais_static.zip index.html public/</code></p>
+
+                <p><code>cd /home/stssio/</code></p>
+
+                <p>Installer sur notre pc le fichier  </p>
+
+                <p><em>ApplifraisV1.zip</em></p>
+
+                <p>Via sftp transférer <em>ApplifraisV1.zip</em> vers <code>/home/stssio</code> </p>
+
+                <p><code>sudo cp -r ./ApplifraisV1.zip /var/www/applifrais</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo unzip ApplifraisV1.zip</code></p>
+
+                <p><code>sudo chmod -R 755 ./www</code></p>
+
+                <p><code>sudo chmod -R 755 ./ScriptsSQL</code></p>
+
+                <p><em>Vous devriez avoir une erreur du type Fatal error: Uncaught PDOException: could not find driver.</em></p>
+
+                <p><strong>Question</strong> </p>
+
+                <p><em>Expliquer cette erreur?</em> </p>
+
+                <p><code>Fatal error: Uncaught PDOException: could not find driver in /var/www/applifrais/www/include/class.pdogsb.inc.php:28 Stack trace: #0 /var/www/applifrais/www/include/class.pdogsb.inc.php(28): PDO-&gt;__construct() #1 /var/www/applifrais/www/index.php(12): PdoGsb-&gt;__construct() #2 {main} thrown in /var/www/applifrais/www/include/class.pdogsb.inc.php on line 28</code> </p>
+
+                <p>On n&#39;a pas MySQL ou MariaDB</p>
+
+                <p><em>Tester l&#39;accès à l&#39;URL suivante : <a href="http://IP/ScriptsSQL/gsbfrais_structure.sql">http://IP/ScriptsSQL/gsbfrais_structure.sql</a></em></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Analyser les problèmes de sécurité engendrés par cette configuration.</em></p>
+
+                <p>Si l’on accède à ce lien cela nous télécharge le fichier pour la création de la base de données utilisé par le serveur </p>
+
+                <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
+
+                <p><code>sudo nano /etc/apache2/sites-available/applifrais.conf</code></p>
+                
+                <pre><code><span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> 100.115.29.226
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/applifrais/www
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/applifrais/www&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes
+
+                        <span class="hljs-comment"># Désactive les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> None
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
+                </code></pre>
+                
+                <p><code>sudo systemctl reload apache2.service</code></p>
+
+                <p><code>sudo apt install mysql-server</code></p>
+            
+                <p><code>sudo apt install mariadb-server</code> </p>
+
+                <p><code>sudo mysql_secure_installation</code> </p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Expliquez chacune de vos décisions.</em></p>
+
+                <p>Enter current password for root (enter for none):  </p>
+
+                <p>None </p>
+
+                <p><strong>On utilise none car, pour l’instant, le compte root n’a pas de mot de passe.</strong></p>
+
+                <p>Switch to unix_socket authentication [Y/n] </p>
+
+                <p>Y  </p>
+
+                <p><strong>On bascule sur l’authentification unix_socket afin de renforcer la sécurité.</strong></p>
+
+                <p>Change the root password? [Y/n] </p>
+
+                <p>Y </p>
+
+                <p><strong>On définit un mot de passe pour le compte root afin d’améliorer la sécurité, puisqu’il n’en a pas actuellement.</strong></p>
+
+                <p>New password:  </p>
+
+                <p>stssio </p>
+
+                <p><strong>On utilise un mot de passe facile à retenir, car l’environnement LAMP mis en place ne sera pas mis en production.</strong></p>
+
+                <p>Re-enter new password: </p>
+
+                <p>stssio </p>
+
+                <p><strong>On remet le mot de passe indiqué plus haut.</strong></p>
+
+                <p>Remove anonymous users? [Y/n] </p>
+
+                <p>Y </p>
+
+                <p><strong>On supprime les utilisateurs anonymes afin de garantir une traçabilité complète et d’identifier clairement chaque utilisateur accédant à la base de données.</strong></p>
+
+                <p>Disallow root login remotely? [Y/n] </p>
+
+                <p>Y </p>
+
+                <p><strong>On désactive la possibilité pour le compte root de se connecter à distance sur la machine.</strong></p>
+
+                <p>Remove test database and access to it? [Y/n] </p>
+
+                <p>Y </p>
+
+                <p><strong>On supprime la base de données test afin d’éviter qu’elle ne soit utilisée par erreur ou de manière non souhaitée.</strong></p>
+                <p>Reload privilege tables now? [Y/n] </p>
+
+                <p>Y </p>
+
+                <p><strong>On met maintenant à jour la table des privilèges pour que toutes les options modifiées en répondant aux questions soient prises en compte.</strong></p>
+
+                <p><code>cd /var/www/applifrais/ScriptsSQL</code></p>
+
+                <p><code>sudo mysql</code></p>
+
+                <pre><code><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> gsbfrais;
+                <span class="hljs-keyword">USE</span> gsbfrais;
+                SOURCE ./gsbfrais_structure.sql;
+                SOURCE ./gsbfrais_data.sql;
+                <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'usergsb'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'stssio'</span>;
+                <span class="hljs-keyword">GRANT</span> ALL <span class="hljs-keyword">ON</span> gsbfrais.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'usergsb'</span>@<span class="hljs-string">'localhost'</span>;
+                </code></pre>
+                
+                <p><code>sudo apt install php-mysql</code></p>
+
+                <p><code>sudo nano /etc/apache2/sites-available/applifrais.conf</code></p>
+
+                <pre><code><span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> 127.0.0.1
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/applifrais/www
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/applifrais/www&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes
+
+                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
+                </code></pre>
+                
+                <p><code>sudo systemctl reload apache2.service</code></p>
+
+                <p><code>sudo a2enmod rewrite</code> </p>
+
+                <p><code>sudo systemctl restart apache2.service</code></p>
+
+            </div>

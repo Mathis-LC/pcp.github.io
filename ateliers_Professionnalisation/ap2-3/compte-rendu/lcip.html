@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu de la procédure d’installation</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="./lamp.html">LAMP</a>
+                                        <a class="navbar-item" href="./lepp.html">LEPP</a>
+                                        <a class="navbar-item" href="./lcip.html">LCIP</a>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                M1: Mise en production sous différents environnements
+            </h1>
+    
+            <h1 class="title is-size-4 mt-6 mb-3">
+                LCIP : Linux (Debian 13), Caddy, SQLite, PHP
+            </h1>
+
+            <div class="content">
+
+                <p>Une fois Debian 13 installé on se connecte à la vm </p>
+
+                <p>Puis on installe sudo pour pouvoir installer Caddy et les autres logiciels</p>
+
+                <p><code>su -</code></p>
+
+                <p><code>apt install sudo</code></p>
+
+                <p><code>adduser stssio sudo</code></p>
+
+                <p><code>exit</code></p>
+
+                <p>Après avoir installer sudo on va pouvoir mettre la vm en adresse IP statique </p>
+
+                <p><code>sudo nano /etc/network/interfaces</code></p>
+
+                <pre><code>allow-hotplug enp3s0
+                iface enp3s0 inet static 
+                address <span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.238</span>/<span class="hljs-number">23</span> 
+                gateway <span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.254</span> 
+                dns-nameservers <span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.41</span> <span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.42</span>
+                </code></pre>
+                
+                <p><code>sudo systemctl restart networking.service</code></p>
+                <p>Puis on suit la documentation officielle pour installer Caddy</p>
+
+                <p><code>sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl</code></p>
+
+                <p><code>curl -1sLf &#39;https://dl.cloudsmith.io/public/caddy/stable/gpg.key&#39; | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg</code></p>
+
+                <p><code>curl -1sLf &#39;https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt&#39; | sudo tee /etc/apt/sources.list.d/caddy-stable.list</code></p>
+
+                <p><code>sudo chmod o+r /usr/share/keyrings/caddy-stable-archive-keyring.gpg</code></p>
+
+                <p><code>sudo chmod o+r /etc/apt/sources.list.d/caddy-stable.list</code></p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install caddy</code></p>
+
+                <p>Puis on configure le pare-feu Debian</p>
+
+                <p><code>sudo nft list ruleset</code></p>
+
+                <p><code>sudo nft add table inet filter</code></p>
+
+                <p><code>sudo nft add chain inet filter input { type filter hook input priority 0 \; }</code></p>
+
+                <p><code>sudo nft add rule inet filter input tcp dport 80 accept</code></p>
+
+                <p><code>sudo nft add rule inet filter input tcp dport 22 accept</code></p>
+
+                <p><code>sudo nft list ruleset</code></p>
+
+                <p>Installer sur notre pc le fichier suivant :  </p>
+
+                <p><em>Applifrais_static.zip</em></p>
+
+                <p>Dans la VM</p>
+
+                <p><code>sudo mkdir /var/www/</code></p>
+
+                <p><code>sudo mkdir /var/www/applifrais</code></p>
+
+                <p>Via sftp transférer <em>Applifrais_static.zip</em> vers <code>/home/stssio</code></p>
+
+                <p><code>whereis unzip</code></p>
+
+                <p>Si non trouvé </p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install unzip</code></p>
+
+                <p>Puis</p>
+
+                <p><code>sudo cp -r ./Applifrais_static.zip /var/www/applifrais</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo unzip Applifrais_static.zip</code></p>
+
+                <p><code>cd /etc/caddy</code></p>
+
+                <p><code>sudo cp Caddyfile Caddyfile.bak</code></p>
+
+                <p><code>sudo nano ./Caddyfile</code></p>
+
+                <pre><code>:<span class="hljs-number">80</span> {
+                        <span class="hljs-comment"># Set this path to your site's directory.</span>
+                        root * /<span class="hljs-keyword">var</span>/www/applifrais
+
+                        <span class="hljs-comment"># Enable the static file server.</span>
+                        file_server
+
+                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
+                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
+
+                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
+                        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload caddy.service</code></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Caddy active-il par défaut l&#39;affichage des dossiers?</em></p>
+
+                <p>Non caddy n&#39;active pas l&#39;affichage par défaut des dossiers</p>
+
+                <p><em>Quelle option permet de l&#39;activer ?</em></p>
+
+                <p><code>sudo nano ./Caddyfile</code></p>
+
+                <pre><code>:<span class="hljs-number">80</span> {
+                        <span class="hljs-comment"># Set this path to your site's directory.</span>
+                        root * /<span class="hljs-keyword">var</span>/www/applifrais
+
+                        <span class="hljs-comment"># Enable the static file server.</span>
+                        file_server {
+                            browse
+                        }
+                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
+                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
+
+                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
+                        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload caddy.service</code></p>
+
+                <p>L&#39;option permettant d&#39;activer l&#39;affichage des dossiers est : </p>
+                
+                <pre><code>        <span class="hljs-section">file_server</span> {
+                            <span class="hljs-attribute">browse</span>
+                        }
+                </code></pre>
+                
+                <p><em>Comparer ce comportement avec celui d&#39;apache et nginx en terme de sécurité.</em></p>
+
+                <p>Caddy est plus sécurisé avec sa configuration par défaut qu&#39;Apache qui contrairement à Caddy affiche les dossiers. Cependant dans sa configuration par défaut Caddy à le même niveau de sécurité qu&#39;Nginx puisque tous les deux n&#39;affichent pas les dossiers par défaut. </p>
+
+                <p><code>sudo apt install php-fpm</code></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Quelle version de php a été installée ?</em></p>
+
+                <p>PHP 8.4.16 </p>
+
+                <p>Pour savoir on fait <code>php -v</code></p>
+
+                <p><code>sudo systemctl start php8.4-fpm</code></p>
+
+                <p><code>sudo systemctl enable php8.4-fpm</code></p>
+
+                <p><code>sudo nano ./Caddyfile</code></p>
+
+                <pre><code>:<span class="hljs-number">80</span> {
+                        <span class="hljs-comment"># Set this path to your site's directory.</span>
+                        root * /var/www/applifrais
+
+                        <span class="hljs-comment"># Enable the static file server.</span>
+                        file_server {
+                            browse
+                        }
+                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
+                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
+
+                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
+                        php_fastcgi unix//<span class="hljs-keyword">run</span><span class="bash">/php/php8.4-fpm.sock
+                </span>        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload caddy.service</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo rm -r Applifrais_static.zip index.html public/</code></p>
+
+                <p><code>cd /home/stssio/</code></p>
+
+                <p>Installer sur notre pc le fichier  </p>
+
+                <p><em>ApplifraisV1.zip</em></p>
+
+                <p>Via sftp transférer <em>ApplifraisV1.zip</em> vers <code>/home/stssio</code> </p>
+
+                <p><code>sudo cp -r ./ApplifraisV1.zip /var/www/applifrais</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo unzip ApplifraisV1.zip</code></p>
+
+                <p><code>sudo chmod -R 755 ./www/</code> </p>
+
+                <p><code>sudo chmod -R 755 ./ScriptsSQL/</code></p>
+
+                <p><em>Vous devriez avoir une erreur du type Fatal error: Uncaught PDOException: could not find driver.</em></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Expliquer cette erreur?</em></p>
+
+                <p><code>Fatal error: Uncaught PDOException: could not find driver in /var/www/applifrais/www/include/class.pdogsb.inc.php:28 Stack trace: #0 /var/www/applifrais/www/include/class.pdogsb.inc.php(28): PDO-&gt;__construct() #1 /var/www/applifrais/www/index.php(12): PdoGsb-&gt;__construct() #2 {main} thrown in /var/www/applifrais/www/include/class.pdogsb.inc.php on line 28</code></p>
+
+                <p>On n’a pas SQLite</p>
+
+                <p><em>Tester l&#39;accès à l&#39;URL suivante : <a href="http://IP/ScriptsSQL/gsbfrais_structure.sql">http://IP/ScriptsSQL/gsbfrais_structure.sql</a></em></p>
+
+                <p><strong>Question</strong> </p>
+
+                <p><em>Analyser les problèmes de sécurité engendrés par cette configuration.</em></p>
+
+                <p>Si l’on accède à ce lien cela nous télécharge le fichier pour la création de la base de données utilisé par le serveur </p>
+
+                <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
+
+                <p><code>sudo nano /etc/caddy/Caddyfile</code></p>
+
+                <pre><code>:<span class="hljs-number">80</span> {
+                        <span class="hljs-comment"># Set this path to your site's directory.</span>
+                        root * <span class="hljs-regexp">/var/</span>www<span class="hljs-regexp">/applifrais/</span>www
+
+                        <span class="hljs-comment"># Enable the static file server.</span>
+                        file_server {
+                            browse
+                        }
+                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
+                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
+
+                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
+                        php_fastcgi unix<span class="hljs-regexp">//</span>run<span class="hljs-regexp">/php/</span>php8.<span class="hljs-number">4</span>-fpm.sock
+                        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload caddy.service</code></p>
+
+                <p><code>sudo apt install sqlite3 php8.4-sqlite3</code></p>
+
+                <p><code>cd ./ScriptsSQL</code></p>
+
+                <p><code>sqlite3 gsbfrais.db</code></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Essayez de naviguer sur le site, rencontrez-vous des erreurs 404?</em></p>
+
+                <p>Non, lorsque l’on navigue sur le site, on ne rencontre pas d’erreurs 404.</p>
+
+                <p><em>Analyser ce comportement sur la configuration par défaut de caddy?</em></p>
+
+                <p>La configuration par défaut de Caddy parvient à gérer à la fois les fichiers dynamiques et statiques, contrairement à Apache ou Nginx, pour lesquels il faut respectivement un fichier .htaccess ou modifier le fichier de configuration de Nginx.</p>
+
+            </div>
+

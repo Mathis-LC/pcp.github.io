@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu de la procédure d’installation</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="./lamp.html">LAMP</a>
+                                        <a class="navbar-item" href="./lepp.html">LEPP</a>
+                                        <a class="navbar-item" href="./lcip.html">LCIP</a>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                M2: Mise en production sous différents environnements
+            </h1>
+
+            <h1 class="title is-size-4 mt-6 mb-3">
+                LEPP: Linux (US24), Nginx, PostgreSQL, PHP
+            </h1>
+
+            <div class="content">
+
+                <p>On créer une vm à partir du modèle us24 init ssh  </p>
+
+                <p>Une fois la VM démarré on se connecte en SSH </p>
+
+                <p>Puis on modifie la configuration ip pour en mettre une qui est attribué à notre binôme  </p>
+
+                <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></p>
+
+                <pre><code><span class="hljs-attr">network:</span>
+                <span class="hljs-attr">  ethernets:</span>
+                <span class="hljs-attr">    enp3s0:</span>
+                <span class="hljs-attr">      dhcp4:</span> <span class="hljs-literal">false</span>
+                <span class="hljs-attr">      addresses:</span> [<span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.237</span>/<span class="hljs-number">24</span>]
+                <span class="hljs-attr">      routes:</span>
+                <span class="hljs-attr">       - to:</span> default
+                <span class="hljs-attr">         via:</span> <span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.254</span>
+                <span class="hljs-attr">      nameservers:</span>
+                <span class="hljs-attr">        addresses:</span> [<span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.41</span>, <span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.42</span>]
+                </code></pre>
+                
+                <p><code>sudo netplan apply</code></p>
+
+                <p><code>whereis apache2</code> </p>
+
+                <p>Si trouvé le déinstaller </p>
+
+                <p><code>sudo apt remove apache2</code></p>
+
+                <p>Sinon on peut continuer </p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install nginx</code></p>
+
+                <p>Pour mettre en place le firewall</p>
+                <p><code>whereis ufw</code></p>
+
+                
+                <p>Si non trouvé</p>
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install ufw</code></p>
+
+                <p>Configurer les règles du firewall</p>
+
+                <p><code>sudo ufw enable</code></p>
+
+                <p><code>sudo ufw app list</code></p>
+
+                <p><code>sudo ufw allow &quot;Nginx Full&quot;</code></p>
+
+                <p><code>sudo ufw allow OpenSSH</code></p>
+
+                <p><code>sudo ufw status</code></p>
+
+                <p>Installer sur notre pc le fichier suivant :  </p>
+
+                <p><em>Applifrais_static.zip</em></p>
+
+                <p>Dans la VM</p>
+
+                <p><code>sudo mkdir /var/www/applifrais</code></p>
+
+                <p>Via sftp transférer <em>Applifrais_static.zip</em> vers <code>/home/stssio</code></p>
+
+                <p><code>whereis unzip</code></p>
+
+                <p>Si non trouvé </p>
+
+                <p><code>sudo apt update</code></p>
+
+                <p><code>sudo apt install unzip</code></p>
+
+                <p>Puis</p>
+
+                <p><code>sudo cp -r ./Applifrais_static.zip /var/www/applifrais</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo unzip Applifrais_static.zip</code></p>
+
+                <p><code>cd /etc/nginx/sites-available/</code></p>
+
+                <p><code>sudo nano ./applifrais</code></p>
+
+                <pre><code><span class="hljs-section">server</span> {
+                    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+                    <span class="hljs-attribute">server_name</span> <span class="hljs-number">100.115.28.237</span>;
+
+                    <span class="hljs-attribute">root</span> /var/www/applifrais;
+                    <span class="hljs-attribute">index</span> index.html;
+
+                    <span class="hljs-attribute">access_log</span> /var/log/nginx/applifrais_access.log;
+                    <span class="hljs-attribute">error_log</span> /var/log/nginx/applifrais_error.log;
+
+                    <span class="hljs-comment"># Retourne une erreur 404 si aucune ressource ne correspond au chemin</span>
+                    <span class="hljs-attribute">location</span> / {
+                        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;
+                    }
+                }
+                </code></pre>
+                
+                <p><code>sudo ln -s /etc/nginx/sites-available/applifrais /etc/nginx/sites-enabled/</code></p>
+
+                <p><code>cd /etc/nginx/sites-enabled/</code></p>
+
+                <p><code>sudo rm default</code></p>
+
+                <p><code>sudo nginx -t</code></p>
+
+                <p><code>sudo systemctl reload nginx.service</code></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>nginx active-il par défaut l&#39;affichage des dossiers ? Quelle option permet de l’activer ? Comparer ce comportement avec celui d&#39;apache en termes de sécurité.</em></p>
+
+                <p>Non nginx n’active pas l’affichage des dossiers par défaut. L’option permettant de l’activer est autoindex on. Sur apache c’est à nous de configurer l’affichage des dossiers. </p>
+
+                <p><code>sudo apt install php-fpm</code></p>
+                
+                <p><strong>Question</strong></p>
+
+                <p><em>Quelle version de php a été installée ?</em></p>
+
+                <p>PHP 8.3.6 </p>
+
+                <p>Pour savoir on fait <code>php -v</code></p>
+
+                <p><code>sudo systemctl start php8.3-fpm</code></p>
+
+                <p><code>sudo systemctl enable php8.3-fpm</code></p>
+
+                <p><code>sudo nano /etc/nginx/sites-available/applifrais</code></p>
+
+                <pre><code><span class="hljs-section">server</span> {
+                    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+                    <span class="hljs-attribute">server_name</span> <span class="hljs-number">100.115.28.237</span>;
+
+                    <span class="hljs-attribute">root</span> /var/www/applifrais;
+                    <span class="hljs-attribute">index</span> index.html;
+
+                    <span class="hljs-attribute">access_log</span> /var/log/nginx/applifrais_access.log;
+                    <span class="hljs-attribute">error_log</span> /var/log/nginx/applifrais_error.log;
+
+                    <span class="hljs-comment"># Retourne une erreur 404 si aucune ressource ne correspond au chemin</span>
+                    <span class="hljs-attribute">location</span> / {
+                        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;
+                    }
+                    <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ \.php$</span> {
+                        <span class="hljs-attribute">include</span> snippets/fastcgi-php.conf;
+                        <span class="hljs-attribute">fastcgi_pass</span> unix:/run/php/php8.3-fpm.sock;
+                    }
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload nginx.service</code></p>
+
+                <p><code>cd /var/www/applifrais/</code></p>
+
+                <p><code>sudo rm -r Applifrais_static.zip index.html public/</code></p>
+
+                <p><code>cd /home/stssio/</code></p>
+
+                <p>Installer sur notre pc le fichier  </p>
+
+                <p><em>ApplifraisV1.zip</em></p>
+
+                <p>Via sftp transférer <em>ApplifraisV1.zip</em> vers <code>/home/stssio</code> </p>
+
+                <p><code>sudo cp -r ./ApplifraisV1.zip /var/www/applifrais</code></p>
+
+                <p><code>cd /var/www/applifrais</code></p>
+
+                <p><code>sudo unzip ApplifraisV1.zip</code></p>
+
+                <p><code>sudo chmod -R 755 ./www/</code> </p>
+
+                <p><code>sudo chmod -R 755 ./ScriptsSQL/</code></p>
+
+                <p><em>Vous devriez avoir une erreur du type Fatal error: Uncaught PDOException: could not find driver.</em></p>
+
+                <p><strong>Question</strong></p>
+
+                <p><em>Expliquer cette erreur?</em></p>
+
+                <p><code>Fatal error: Uncaught PDOException: could not find driver in /var/www/applifrais/www/include/class.pdogsb.inc.php:28 Stack trace: #0 /var/www/applifrais/www/include/class.pdogsb.inc.php(28): PDO-&gt;__construct() #1 /var/www/applifrais/www/index.php(12): PdoGsb-&gt;__construct() #2 {main} thrown in /var/www/applifrais/www/include/class.pdogsb.inc.php on line 28</code></p>
+
+                <p>On n’a pas PostgreSQL </p>
+
+                <p><em>Tester l&#39;accès à l&#39;URL suivante : <a href="http://IP/ScriptsSQL/gsbfrais_structure.sql">http://IP/ScriptsSQL/gsbfrais_structure.sql</a></em></p>
+
+                <p><strong>Question</strong> </p>
+
+                <p><em>Analyser les problèmes de sécurité engendrés par cette configuration.</em></p>
+
+                <p>Si l’on accède à ce lien cela nous télécharge le fichier pour la création de la base de données utilisé par le serveur </p>
+
+                <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
+
+                <p><code>sudo nano /etc/nginx/sites-available/applifrais</code></p>
+
+                <pre><code><span class="hljs-section">server</span> {
+                    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+                    <span class="hljs-attribute">server_name</span> <span class="hljs-number">100.115.28.237</span>;
+
+                    <span class="hljs-attribute">root</span> /var/www/applifrais/www;
+                    <span class="hljs-attribute">index</span> index.html;
+
+                    <span class="hljs-attribute">access_log</span> /var/log/nginx/applifrais_access.log;
+                    <span class="hljs-attribute">error_log</span> /var/log/nginx/applifrais_error.log;
+
+                    <span class="hljs-comment"># Retourne une erreur 404 si aucune ressource ne correspond au chemin</span>
+                    <span class="hljs-attribute">location</span> / {
+                        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;
+                    }
+                    <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ \.php$</span> {
+                        <span class="hljs-attribute">include</span> snippets/fastcgi-php.conf;
+                        <span class="hljs-attribute">fastcgi_pass</span> unix:/run/php/php8.3-fpm.sock;
+                    }
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload nginx.service</code></p>
+
+                <p><code>sudo apt install postgresql</code></p>
+
+                <p><code>sudo apt install php-pgsql</code></p>
+
+                <p><code>sudo nano /etc/nginx/sites-available/applifrais</code></p>
+
+                <pre><code><span class="hljs-section">server</span> {
+                    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+                    <span class="hljs-attribute">server_name</span> <span class="hljs-number">100.115.28.237</span>;
+
+                    <span class="hljs-attribute">root</span> /var/www/applifrais/www;
+                    <span class="hljs-attribute">index</span> index.html;
+
+                    <span class="hljs-attribute">access_log</span> /var/log/nginx/applifrais_access.log;
+                    <span class="hljs-attribute">error_log</span> /var/log/nginx/applifrais_error.log;
+
+                    <span class="hljs-comment"># Retourne une erreur 404 si aucune ressource ne correspond au chemin</span>
+                    <span class="hljs-attribute">location</span> / {
+                        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;
+                    }
+                    <span class="hljs-attribute">location</span> <span class="hljs-regexp">~ \.php$</span> {
+                        <span class="hljs-attribute">include</span> snippets/fastcgi-php.conf;
+                        <span class="hljs-attribute">fastcgi_pass</span> unix:/run/php/php8.3-fpm.sock;
+                    }
+                    <span class="hljs-comment"># Fichiers statiques (pas de réécriture)</span>
+                    <span class="hljs-attribute">location</span> /public/ {
+                        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> =<span class="hljs-number">404</span>;
+                    }
+
+                    <span class="hljs-comment"># Redirection du reste vers index.php</span>
+                    <span class="hljs-attribute">location</span> / {
+                        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.php?<span class="hljs-variable">$query_string</span>;
+                    }
+                }
+                </code></pre>
+                
+                <p><code>sudo systemctl reload nginx.service</code></p>
+            
+            </div>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="./consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="./missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu de la procédure d’installation</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="./compte-rendu/lamp.html">LAMP</a>
+                                        <a class="navbar-item" href="./compte-rendu/lepp.html">LEPP</a>
+                                        <a class="navbar-item" href="./compte-rendu/lcip.html">LCIP</a>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                Missions
+            </h1>
+
+            <h1 class="title is-size-4 mt-6 mb-3">
+                M1: Mise en production sous différents environnement
+            </h1>
+            
+            <div class="content">
+
+                <p>Vous devez mettre en place 3 environnements:</p>
+
+                <ol>
+                <li>LAMP: Linux (US24), Apache2, Mysql, PHP</li>
+                <li>LEPP: Linux (US24), Nginx, PostgreSQL, PHP</li>
+                <li>LCIP: Debian 13, Caddy, SQLite, PHP</li>
+                </ol>
+                <p>Les environnements sont à implémenter dans l&#39;ordre précédent.</p>
+                <p><strong>Pour chaque environnement</strong> Il faut documenter et recetter:</p>
+                <ol>
+                <li><p>Mise en place de l&#39;environnement et de la configuration réseau</p>
+                </li>
+                <li><p>Validation d&#39;accès à un serveur web: Page statique</p>
+                </li>
+                <li><p>Validation d&#39;accès à un serveur web: Page dynamique (PHP)</p>
+                </li>
+                <li><p>Validation d&#39;accès à un serveur web : Page dynamique (php) et accès à une base de données </p>
+                </li>
+                </ol>
+
+                <p>Les machines peuvent être installées sous virtualbox ou sur la ferme.</p>
+
+                <blockquote>
+                    
+                    <p> ⚠️ Remarque sur l&#39;addressage IP
+                    <strong>si vous laissez l’identification DHCP par défaut</strong>, vous risquez de recevoir la même adresse IP qu&#39;une autre machine utilisant la même ova, il faut donc, avant le démarrage de la MV, effectuer un changement de d’adresse Mac dans Virtualbox, puis modifier la configuration réseau de la MV :</p>
+
+                    <ul>
+                        <li><code>dhcp4: true</code></li>
+                        <li><code>dhcp-identifier: mac</code></li>
+                    </ul>
+            
+                </blockquote>
+
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    © 2026 Mathis Lorent-Chemin - BTS SIO SISR · Lycée Victor et Hélène Basch - Tous droits réservés
+                </p>
+            </div>
+        </footer>
+
+    </body>
+</html>                     

@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Configurations Apache</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Test Noms de Domaine</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../test_domaine_Labannu/test_Domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../test_domaine_Local/test_domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../labannu/labannu.html">Configuration VM Labannu</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../pc01s300/pc01s300.html">Configuration VM PC01S300</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="./webvislab.html">Configuration VM Webvislab</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../reseaux/configuration_reseaux.html">Configuration Réseaux VM</a>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu Slowloris</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../slowloris/slowloris_attacker.html">Slowloris Attacker</a>
+                                        <a class="navbar-item" href="../slowloris/slowloris_patch.html">Slowloris Patch</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../gitlab/gitlab.html">Tuto SSH Gitlab</a>
+
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+        <h1 class="title is-size-3 mt-5 mb-6">
+            Configuration serveur web webvislab
+        </h1>
+            
+        <p><em>choix des technologies pour le serveur webvislab</em></p>
+
+        <h1 class="title is-size-4 mt-6 mb-3">
+            LAMP : Linux (US24), Apache2, Mysql, PHP
+        </h1>
+
+            <div class="content">
+
+                <p>On importe le modèle de vm webvislab </p>
+                <p>On peut changer le nom de la machine</p>
+                <p><code>sudo nano /etc/hostname</code></p>
+                <p>Remplacer us2004 par webvislab</p>
+                <p><code>whereis apache2</code></p>
+                <p>Si non trouvé</p>
+                <p><code>sudo apt update</code></p>
+                <p><code>sudo apt install apache2 -y</code></p>
+                <p>Pour mettre en place le firewall</p>
+                <p><code>whereis ufw</code></p>
+                <p>Si non trouvé</p>
+                <p><code>sudo apt update</code></p>
+                <p><code>sudo apt install ufw -y</code></p>
+                <p>Configurer les règles du firewall</p>
+                <p><code>sudo ufw enable</code></p>
+                <p><code>sudo ufw app list</code></p>
+                <p><code>sudo ufw allow &quot;Apache Full&quot;</code></p>
+                <p><code>sudo ufw allow OpenSSH</code> </p>
+                <p><code>sudo ufw status</code></p>
+                <p>Puis on créer les dossiers en suivant le tableau</p>
+                <p><code>sudo mkdir /var/www/Applifrais</code></p>
+                <p><code>sudo mkdir /var/www/Applifrais/2.0</code></p>
+                <p><code>sudo mkdir /var/www/Applifrais/beta</code></p>
+                <p><code>cd /etc/apache2/sites-available/</code></p>
+                <p><code>sudo nano applifraisv2.conf</code></p>
+
+                <pre><code>
+                <span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> applifrais.webvislab.local
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/Applifrais/2.0/www
+                    <span class="hljs-attribute">DirectoryIndex</span> accueil.html index.html index.php
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/Applifrais/2.0/www&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-comment">#   Indexes: l'affichage du contenu des répertoires</span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes -Indexes
+
+                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
+                </code></pre>
+                
+                <p><code>sudo apache2ctl configtest</code></p>
+                <p><code>sudo a2ensite applifraisv2</code></p>
+                <p><code>sudo systemctl reload apache2.service</code></p>
+                <p><code>sudo a2dissite 000-default</code></p>
+                <p><code>sudo systemctl reload apache2.service</code></p>
+                <p><code>sudo a2enmod rewrite</code> </p>
+                <p><code>sudo systemctl restart apache2.service</code></p>
+                <p><code>sudo nano applifraisbeta.conf</code></p>
+
+                <pre><code>
+                <span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> beta.applifrais.webvislab.local
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/Applifrais/beta/www
+                    <span class="hljs-attribute">DirectoryIndex</span> accueil.html index.html index.php
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/Applifrais/beta/www&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-comment">#   Indexes: l'affichage du contenu des répertoires        </span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes -Indexes
+
+                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
+                </code></pre>                
+                
+                <p><code>sudo apache2ctl configtest</code></p>
+                <p><code>sudo a2ensite applifraisbeta</code></p>
+                <p><code>sudo systemctl reload apache2.service</code></p>
+                <p><code>sudo apt install php libapache2-mod-php</code></p>
+                <p><code>php -v</code></p>
+                <p><code>sudo a2enmod php8.3</code></p>
+                <p><code>sudo apt install mysql-server</code></p>
+                <p><code>sudo apt install mariadb-server</code> </p>
+                <p><code>sudo mysql_secure_installation</code> </p>
+                <p><code>sudo apt install php-mysql</code></p>
+
+                <p><strong>Créer un utilisateur UNIX par étudiant : 2 SLAM et 2 SISR les ajouter au groupe www-data.</strong></p>
+
+                <p><code>sudo adduser etudiant1</code></p>
+                <p><code>sudo adduser etudiant2</code></p>
+                <p><code>sudo adduser etudiant3</code></p>
+                <p><code>sudo adduser etudiant4</code></p>
+                <p><code>sudo adduser etudiant1 www-data</code></p>
+                <p><code>sudo adduser etudiant2 www-data</code></p>
+                <p><code>sudo adduser edtudiant3 www-data</code></p>
+                <p><code>sudo adduser etudaint4 www-data</code></p>
+
+                <p><strong>Copier les clés publiques des utilisateurs dans les fichiers</strong></p>
+
+                <pre><code>
+                sudo su etudiant1
+                ls -a 
+                mkdir .ssh 
+                cd .ssh
+                touch authorized_keys
+                echo ssh-ed25519 [clé_publique_ssh] etudiant1@[nom-pc] > authorized_keys
+                cat authorized_keys
+                exit
+                </code></pre>
+                
+                <pre><code>
+                sudo su etudiant2
+                ls -a
+                mkdir .ssh
+                cd .ssh 
+                touch authorized_keys
+                echo ssh-ed25519 [clé_publique_ssh] etudiant2@[nom-pc] > authorized_keys
+                cat authorized_keys
+                exit
+                </code></pre>
+                
+                <pre><code>
+                sudo su etudiant3
+                ls -a
+                mkdir .ssh
+                cd .ssh 
+                touch authorized_keys
+                echo ssh-ed25519 [clé_publique_ssh] etudiant3@[nom-pc] > authorized_keys
+                cat authorized_keys
+                exit
+                </code></pre>
+                
+                <pre><code>
+                sudo su etudiant4
+                ls -a 
+                mkdir .ssh 
+                cd .ssh
+                touch authorized_keys
+                echo ssh-ed25519 [clé_publique_ssh] etudiant4@[nom-pc] > authorized_keys
+                cat authorized_keys
+                exit
+                </code></pre>
+                
+                <p><strong>Ajouter les deux étudiants SISR au groupe sudo.</strong></p>
+
+                <p><code>sudo adduser etudiant1 sudo</code></p>
+                <p><code>sudo adduser etudiant2 sudo</code></p>
+
+                <p><strong>Supprimer le compte STSSIO</strong></p>
+
+                <p><code>userdel -r stssio</code></p>
+
+                <p><strong>Désactiver l’authentification par mot de passe</strong></p>
+
+                <p><code>sudo nano /etc/ssh/ssh_config</code></p>
+                <p><code>PasswordAuthentication no</code></p>
+                <p><code>sudo systemctl restart ssh.service</code></p>
+                <p><code>sudo chmod 775 ./beta</code></p>
+
+                <p><code>sudo chown etudiant1:www-data ./beta</code></p>
+
+                <p><code>git clone --single-branch --branch main git@[url du dépôt git]</code></p>
+
+                <p><code>cd /var/www/Aplifrais/beta/applifrais</code></p>
+
+                <p><code>sudo mv ./ChangeLog.md ./config.php ./convertir_mdp.php ./README.md ./ScriptsSQL ./www ./.git ../</code></p>
+                <p><code>cd ..</code></p>
+                <p><code>sudo rm -r ./applifrais</code></p>
+                <p><code>sudo mysql</code></p>
+                <p><code>SOURCE ./ScriptsSQL/gsbfrais_bduser.sql</code></p>
+                <p><code>php ./convertir_mdp.php</code></p>
+
+                <p>Si le dépôt GitLab subit des modifications.</p>
+                <p><code>git pull origin main</code></p>
+
+                <p><code>sudo chmod 775 ./2.0</code></p>
+
+                <p><code>sudo chown etudiant1:www-data ./2.0</code></p>
+
+                <p><code>git clone --single-branch --branch 2.0 git@[url du dépôt git]</code></p>
+
+                <p><code>cd /var/www/Aplifrais/2.0/applifrais</code></p>
+
+                <p><code>sudo mv ./ChangeLog.md ./config.php ./README.md ./ScriptsSQL ./www ./.git ../</code></p>
+                <p><code>cd ..</code></p>
+                <p><code>sudo rm -r ./applifrais</code></p>
+                <p><code>sudo mysql</code></p>
+                <p><code>SOURCE ./ScriptsSQL/gsbfrais_bduser.sql</code></p>
+
+                <p>Si le dépôt GitLab subit des modifications.</p>
+
+                <p><code>git pull origin 2.0</code></p>
+
+                <p>Une fois la configuration terminée, on peut changer l’IP. </p>
+
+                <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code> </p>
+
+                <pre><code>
+                <span class="hljs-attr">network:</span>
+                <span class="hljs-attr">  ethernets:</span>
+                <span class="hljs-attr">    enp3s0:</span>
+                <span class="hljs-attr">      dhcp4:</span> <span class="hljs-literal">false</span>
+                <span class="hljs-attr">      addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.20</span>/<span class="hljs-number">16</span>]
+                <span class="hljs-attr">      routes:</span>
+                <span class="hljs-attr">       - to:</span> default
+                <span class="hljs-attr">         via:</span> <span class="hljs-number">172.18</span><span class="hljs-number">.255</span><span class="hljs-number">.254</span>
+                <span class="hljs-attr">      nameservers:</span>
+                <span class="hljs-attr">        addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.30</span>]
+                </code></pre>
+
+                <p><code>sudo netplan apply</code></p>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    © 2026 Mathis Lorent-Chemin - BTS SIO SISR · Lycée Victor et Hélène Basch - Tous droits réservés
+                </p>
+            </div>
+        </footer>
+
+	</body>
+</html>               

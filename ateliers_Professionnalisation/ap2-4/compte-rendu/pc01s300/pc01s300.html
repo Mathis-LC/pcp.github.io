@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Configurations Apache</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Test Noms de Domaine</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../test_domaine_Labannu/test_Domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../test_domaine_Local/test_domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../labannu/labannu.html">Configuration VM Labannu</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="./pc01s300.html">Configuration VM PC01S300</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../webvislab/webvislab.html">Configuration VM Webvislab</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../reseaux/configuration_reseaux.html">Configuration Réseaux VM</a>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu Slowloris</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../slowloris/slowloris_attacker.html">Slowloris Attacker</a>
+                                        <a class="navbar-item" href="../slowloris/slowloris_patch.html">Slowloris Patch</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../gitlab/gitlab.html">Tuto SSH Gitlab</a>
+
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                Configuration de la VM Ubuntu Desktop 24
+            </h1>
+
+                <div class="content">
+
+                    <p>Ouvrir VirtualBox </p>
+
+                    <p><img src="./images/image1.png" alt="image1" title="image1"></p>
+
+                    <p>Créer une nouvelle machine virtuelle  </p>
+
+                    <p>Pour créer une nouvelle machine virtuelle on cliquera sur le bouton en haut à gauche </p>
+
+                    <p><img src="./images/image2.png" alt="image2" title="image2"></p>
+
+                    <p><img src="./images/image3.png" alt="image3" title="image3"></p>
+
+                    <p>Nous allons respecter les règles de nommage imposé par GSB  </p>
+
+                    <p>Nous allons donc nommer la machine virtuelle comme suit :  </p>
+
+                    <p>NomHote_NomSE où NomSE={US24, UD24, W11}, NomHote : voir schéma réseau </p>
+
+                    <p>La machine virtuelle que nous allons installer étant la VM Ubuntu Desktop 24 nous allons donc la nommer PC01S300_UD24 </p>
+
+                    <p><img src="./images/image4.png" alt="image4" title="image4"></p>
+
+                    <p>Nous devons ensuite stocker la VM dans le répertoire qui convient, encore une fois nous allons nous référerai à la documentation fournie </p>
+
+                    <p>Nous allons donc stocker la VM en suivant le chemin suivant : D:\VMs\SIO1\mathislc\AP2-4-InfraDevWeb\PC01S300_UD24 </p>
+
+                    <p><img src="./images/image5.png" alt="image5" title="image5"></p>
+
+                    <p>On importe ensuite le fichier iso de Ubuntu Desktop 24 fourni  </p>
+
+                    <p><img src="./images/image6.png" alt="image6" title="image6"></p>
+
+                    <p>Si le fichier est bien fonctionnelle VirtualBox devrait reconnaitre automatiquement de quel système d’exploitation il s’agit </p>
+
+                    <p><img src="./images/image7.png" alt="image7" title="image7"></p>
+
+                    <p>On décochera l’option pour l’unattended installation  </p>
+
+                    <p><img src="./images/image8.png" alt="image8" title="image8"></p>
+
+                    <p><img src="./images/image9.png" alt="image9" title="image9"></p>
+
+                    <p>Nous allons vérifier que les premiers paramètres sont bien configurés  </p>
+
+                    <p><img src="./images/image10.png" alt="image10" title="image10"></p>
+
+                    <p>Nous passerons l’étape de configuration de l’unattented installation  </p>
+
+                    <p><img src="./images/image11.png" alt="image11" title="image11"></p>
+
+                    <p>Nous allons configurés la partie hardware de la machine virtuelle  </p>
+
+                    <p><img src="./images/image12.png" alt="image12" title="image12"></p>
+
+                    <p><img src="./images/image13.png" alt="image13" title="image13"></p>
+
+                    <p>La configuration par défaut proposé par VirtualBox étant différente de celle recommandé par Ubuntu, nous allons modifier ces paramètres pour qu’ils correspondent aux paramètres de la configuration minimale recommandé par Ubuntu.</p>
+
+                    <p><img src="./images/image14.png" alt="image14" title="image14"></p>
+
+                    <p>Nous passerons ensuite à la configuration du disque dur de la machine virtuelle </p>
+
+                    <p><img src="./images/image15.png" alt="image15" title="image15"></p>
+
+                    <p>Nous allons suivre la documentation fournie ou il y est indiqué :  </p>
+
+                    <p>Les VM sont créées avec des disques durs (DD) en mode <strong>dynamique</strong>, au format <strong>vmdk</strong></p>
+
+                    <p>Nous allons donc suivra la documentation est adapté la taille du disque dur virtuelle en fonction de la configuration minimale recommandé pour Ubuntu Desktop 24 </p>
+
+                    <p>C’est-à-dire que le disque devra faire au moins une taille de 50Go </p>
+
+                    <p><img src="./images/image16.png" alt="image16" title="image16"></p>
+
+                    <p>La configuration par défaut de VirtualBox propose de mettre un disque de 25Go, mais nous allons suivre la configuration minimale recommandé par Ubuntu</p>
+
+                    <p>Nous ajusterons donc la taille à 50Go pour éviter d’être limiter en place et pour suivre la configuration minimale indiqué par Canonical sur leur site  </p>
+
+                    <p><img src="./images/image17.png" alt="image17" title="image17"></p>
+
+                    <p>Nous changerons le type de disque pour être conforme aux recommandations d&#39;Ubuntu</p>
+
+                    <p><img src="./images/image18.png" alt="image18" title="image18"></p>
+
+                    <p>Nous passerons le disque en format VMDK </p>
+
+                    <p><img src="./images/image19.png" alt="image19" title="image19"></p>
+
+                    <p><img src="./images/image20.png" alt="image20" title="image20"></p>
+
+                    <p>Une fois la configuration de la VM nous pourrons cliquer sur le bouton finish </p>
+
+                    <p><img src="./images/image21.png" alt="image21" title="image21"></p>
+
+                    <p>Après avoir cliqué sur le bouton finish la VM devrai se créer</p>
+
+                    <p>Normalement la VM devrait s’ajouter au groupe : AP2-4-InfraDevWeb </p>
+
+                    <p>Si ce n’est pas le cas on peut l’ajouter manuellement en la déplaçant en maintenant le clic droit de la souris ou en faisant clic droit sur la VM </p>
+
+                    <p><img src="./images/image22.png" alt="image22" title="image22"></p>
+
+                    <p>Et puis on passera notre curseur sur l’option move to group pour la déplacer dans le groupe AP2-4-InfraDevWeb si tenté que celui-ci existe </p>
+
+                    <p><img src="./images/image23.png" alt="image23" title="image23"></p>
+
+                    <p>Si celui-ci n’existe pas on peut toujours le créer en cliquant sur l’option : new group  </p>
+
+                    <p>Le mode de réseau par défaut étant le NAT nous n’avons pas besoin de modifier la configuration de la VM  </p>
+
+                    <p><img src="./images/image24.png" alt="image24" title="image24"></p>
+
+                    <p><img src="./images/image25.png" alt="image25" title="image25"></p>
+
+                    <p>Nous pouvons maintenant démarrer la VM  </p>
+
+                    <p>Il existe plusieurs manières de démarrer une VM sur VirtualBox : On peut double cliquer sur la VM, On peut faire un clic droit sur la VM puis dans les options qui s’affiche cliquer sur démarrer ou bien on peut cliquer sur le bouton démarrer qui se situe en haut à gauche de l’interface, cependant il faudra veiller à ce que la VM sélectionné soit la bonne.  </p>
+
+                    <p><img src="./images/image26.png" alt="image26" title="image26"></p>
+
+                    <p>Nous allons donc démarrer la VM avec l’une des options citées plutôt </p>
+                
+                </div>
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                Installation d’Ubuntu Desktop 24
+            </h1>
+
+                <div class="content">
+
+                    <p>Une fois la VM démarrer on se retrouve face au gestionnaire de démarrage GRUB  </p>
+
+                    <p><img src="./images/image27.png" alt="image27" title="image27"></p>
+
+                    <p>On appuie sur la touche entrée car « Try or install Ubuntu » est l’option par défaut et c’est celle que nous devons choisir  </p>
+
+                    <p>Après avoir appuyé sur entrée on se retrouve face à un écran noir  </p>
+
+                    <p>Après un écran de chargement Ubuntu apparait  </p>
+
+                    <p>Enfin on se retrouve sur une interface d’installation d’Ubuntu </p>
+
+                    <p><img src="./images/image28.png" alt="image28" title="image28"></p>
+
+                    <p>On va sélectionner comme langue Français </p>
+
+                    <p><img src="./images/image29.png" alt="image29" title="image29"></p>
+
+                    <p>On peut ensuite appuyer sur suivant  </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image30.png" alt="image30" title="image30"></p>
+
+                    <p>On peut encore appuyer sur suivant  </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image31.png" alt="image31" title="image31"></p>
+
+                    <p>On peut laisser les paramètres par défaut et appuyer sur suivant  </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image32.png" alt="image32" title="image32"></p>
+
+                    <p>On peut cliquer sur suivant  </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image33.png" alt="image33" title="image33"></p>
+
+                    <p>On peut cliquer sur ignorer pour éviter de devoir recommencer les étapes précédentes  </p>
+
+                    <p>Un nouveau menu apparait </p>
+
+                    <p><img src="./images/image34.png" alt="image34" title="image34"></p>
+
+                    <p>On clique sur suivant car l’installation d’Ubuntu est le choix par défaut  </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image35.png" alt="image35" title="image35"></p>
+
+                    <p>On clique sur suivant car l’installation interactive est le choix par défaut </p>
+
+                    <p>Un nouveau menu apparait </p>
+
+                    <p><img src="./images/image36.png" alt="image36" title="image36"></p>
+
+                    <p>On clique sur suivant  </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image37.png" alt="image37" title="image37"></p>
+
+                    <p>On clique sur suivant  </p>
+
+                    <p>Un nouveau menu apparait </p>
+
+                    <p><img src="./images/image38.png" alt="image38" title="image38"></p>
+
+                    <p>On clique sur suivant </p>
+
+                    <p>Un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image39.png" alt="image39" title="image39"></p>
+
+                    <p>Ont rempli ces options en suivant la documentation et le document MV Description  </p>
+
+                    <p><img src="./images/image40.png" alt="image40" title="image40"></p>
+
+                    <p><img src="./images/image41.png" alt="image41" title="image41"></p>
+
+                    <p>On clique sur suivant  </p>
+
+                    <p>Un nouveau menu apparait </p>
+
+                    <p><img src="./images/image42.png" alt="image42" title="image42"></p>
+
+                    <p>On met Rennes comme emplacement pour le fuseau horaire</p>
+
+                    <p><img src="./images/image43.png" alt="image43" title="image43"></p>
+
+                    <p><img src="./images/image44.png" alt="image44" title="image44"></p>
+
+                    <p>On clique sur suivant  </p>
+
+                    <p>Un nouveau menu apparait </p>
+
+                    <p><img src="./images/image45.png" alt="image45" title="image45"></p>
+
+                    <p>On clique sur le bouton « Installer » ce qui démarre l’installation d’Ubuntu Desktop  </p>
+
+                    <p>L’installation démarre donc  </p>
+
+                    <p><img src="./images/image46.png" alt="image46" title="image46"></p>
+
+                    <p>Une fois l’installation terminé un nouveau menu apparait  </p>
+
+                    <p><img src="./images/image47.png" alt="image47" title="image47"></p>
+
+                    <p>On va cliquer sur redémarrer maintenant  </p>
+
+                    <p>Un nouveau menu apparait après le redémarrage</p>
+
+                    <p><img src="./images/image48.png" alt="image48" title="image48"></p>
+
+                    <p>Il faut que l’on éjecte l’iso  </p>
+
+                    <p><img src="./images/image49.png" alt="image49" title="image49"></p>
+
+                    <p>Finalement Ubuntu a déjà éjecté l’iso de la VM il nous suffit juste d’appuyer sur la touche entrée  </p>
+
+                    <p>La VM redémarre </p>
+
+                    <p>Une fois la VM redémarré nous nous retrouvons face à l’écran de connexion  </p>
+
+                    <p><img src="./images/image50.png" alt="image50" title="image50"></p>
+
+                    <p>Il suffit de cliquer sur notre profile et rentrer notre mot de passe  </p>
+                    
+                    <p><img src="./images/image51.png" alt="image51" title="image51"></p>
+
+                    <p>Une fois cela fait nous arrivons sur Ubuntu Desktop 24 </p>
+
+                    <p><img src="./images/image52.png" alt="image52" title="image52"></p>
+
+                </div>
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                Configuration IP du poste PC01S300
+            </h1>
+
+                <div class="content">
+
+                    <p>Une fois la VM installé et démarré il nous reste à configurer les paramètres réseaux de celle-ci  </p>
+
+                    <p>Pour effectuer cela nous allons nous référer au schéma présent dans la documentation, ainsi qu’a tableau MV Description ou nous avons rempli les informations nécessaires  </p>
+
+                    <p>Il nous faudra appliquer les changements de configuration réseau suivants :  </p>
+
+                    <p><em>Adresse IP :</em>  </p>
+
+                    <p>172.18.0.1 / 255.255.0.0 </p>
+
+                    <p><em>Passerelle :</em></p>
+
+                    <p>172.18.255.254 / 255.255.0.0 </p>
+
+                    <p><em>Serveur DNS :</em></p>
+
+                    <p>172.18.0.30 </p>
+
+                    <p>Pour changer cela nous allons utiliser l’application terminal  </p>
+
+                    <p><img src="./images/image53.png" alt="image53" title="image53"></p>
+
+                    <p>Il nous faut cliquer sur le bouton afficher plus d’applications  </p>
+
+                    <p><img src="./images/image54.png" alt="image54" title="image54"></p>
+
+                    <p>Une fois arrivé sur ce menu on voit que l’application terminal s’y trouve </p>
+
+                    <p>Nous allons donc ouvrir cette application  </p>
+
+                    <p><img src="./images/image55.png" alt="image55" title="image55"></p>
+
+                    <p>Nous avons donc accès au terminal  </p>
+
+                    <p>Pour changer les paramètres réseau nous éditer le fichier de configuration en exécutant la commande suivante </p>
+
+                    <p><img src="./images/image56.png" alt="image56" title="image56"></p>
+
+                    <p><img src="./images/image57.png" alt="image57" title="image57"></p>
+
+                    <p>Après exécuté la commande ci-dessus nous arrivons dans un fichier .yaml que nous allons modifier pour y mettre les adresses IP présente dans la documentation</p>
+
+                    <p><img src="./images/image58.png" alt="image58" title="image58"></p>
+
+                    <p>Comme nous utilisons Nano il faut faire CTRL + O pour écrire notre configuration réseau dans le fichier de config  </p>
+
+                    <p><img src="./images/image59.png" alt="image59" title="image59"></p>
+
+                    <p>Il nous faut ensuite appuyer sur la touche « entrée »  </p>
+
+                    <p>On peut ensuite faire CTRL + X pour quitter le fichier  </p>
+
+                    <p>Pour appliquer ces changements on peut exécuter la commande suivante :  </p>
+
+                    <p><img src="./images/image60.png" alt="image60" title="image60"></p>
+
+                    <p>Pour être sûr que nous changements de configuration réseau ont bien été pris en compte on peut effectuer diverses commandes  </p>
+                    
+                    <p><code>ip a</code> = Interface Réseau : </p>
+
+                    <p><img src="./images/image61.png" alt="image61" title="image61"></p>
+
+                    <p>On voit que la configuration IP de la machine à bien été prise en compte  </p>
+
+                    <p><img src="./images/image62.png" alt="image62" title="image62"></p>
+
+                    <p><code>ip r</code> = Passerelle : </p>
+
+                    <p><img src="./images/image63.png" alt="image63" title="image63"></p>
+
+                    <p>On voit que la configuration IP de la passerelle à bien été prise en compte </p>
+
+                    <p><img src="./images/image64.png" alt="image64" title="image64"></p>
+
+                    <p><code>resolvectl dns</code> = Serveur DNS : </p>
+
+                    <p><img src="./images/image65.png" alt="image65" title="image65"></p>
+
+                    <p>On voit que la configuration IP du Serveur DNS à bien été prise en compte </p>
+
+                    <p><img src="./images/image66.png" alt="image66" title="image66"></p>
+
+                </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    © 2026 Mathis Lorent-Chemin - BTS SIO SISR · Lycée Victor et Hélène Basch - Tous droits réservés
+                </p>
+            </div>
+        </footer>
+
+	</body>
+</html>                   

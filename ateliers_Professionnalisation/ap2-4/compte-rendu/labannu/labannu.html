@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Configurations Apache</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Test Noms de Domaine</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../test_domaine_Labannu/test_Domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../test_domaine_Local/test_domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="./labannu.html">Configuration VM Labannu</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../pc01s300/pc01s300.html">Configuration VM PC01S300</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../webvislab/webvislab.html">Configuration VM Webvislab</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../reseaux/configuration_reseaux.html">Configuration Réseaux VM</a>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu Slowloris</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../slowloris/slowloris_attacker.html">Slowloris Attacker</a>
+                                        <a class="navbar-item" href="../slowloris/slowloris_patch.html">Slowloris Patch</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../gitlab/gitlab.html">Tuto SSH Gitlab</a>
+
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">Configuration VM</h1>
+
+            <div class="content">
+                <p>Il suffit d'importer la VM (.ova)</p>
+            </div>
+
+            <h1 class="title is-size-3 mt-5 mb-6">Configuration DNS</h1>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On créer une nouvelle zone</h1>
+
+            <div class="content">
+                <p><img src="./images/image1.png" alt="image1" title="image1"></p>
+                <p><img src="./images/image2.png" alt="image2" title="image2"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On décoche <em>"Enregistrer la zone dans Active Directory"</em></h1>
+
+            <div class="content">
+                <p><img src="./images/image3.png" alt="image3" title="image3"></p>
+                <p><img src="./images/image4.png" alt="image4" title="image4"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On créer notre zone (domaine racine)</h1>
+
+            <div class="content">            
+                <p><img src="./images/image5.png" alt="image5" title="image5"></p>
+                <p><img src="./images/image6.png" alt="image6" title="image6"></p>
+            </div>
+                
+            <h1 class="title is-size-4 mt-6 mb-3">On laisse l'option par défaut <em>"Ne pas autoriser les mises à jour dynamiques"</em></h1>
+
+            <div class="content">            
+                <p><img src="./images/image7.png" alt="image7" title="image7"></p>
+                <p><img src="./images/image8.png" alt="image8" title="image8"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On créer un <em>"Nouvel hôte (A ou AAAA)"</em></h1>
+
+            <div class="content">            
+                <p><img src="./images/image9.png" alt="image9" title="image9"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On met le nom de domaine <em>"applifrais.webvislab"</em> et on l'associe à l'ip du serveur webvislab</h1>
+
+            <div class="content">            
+                <p><img src="./images/image10.png" alt="image10" title="image10"></p>
+                <p><img src="./images/image11.png" alt="image11" title="image11"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On met le nom de domaine <em>"beta.applifrais.webvislab"</em> et on l'associe à l'ip du serveur webvislab</h1>
+                
+            <div class="content">                        
+                <p><img src="./images/image12.png" alt="image12" title="image12"></p>
+                <p><img src="./images/image13.png" alt="image13" title="image13"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">On devrait obtenir l'arborescence suivante :</h1>
+
+            <div class="content">            
+                <p><img src="./images/image14.png" alt="image14" title="image14"></p>
+            </div>
+
+            <h1 class="title is-size-4 mt-6 mb-3">Et on devrait obtenir la configuration suivante si l'on clique sur le dossier <em>"applifrais"</em></h1>
+
+            <div class="content">            
+                <p><img src="./images/image15.png" alt="image15" title="image15"></p>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    © 2026 Mathis Lorent-Chemin - BTS SIO SISR · Lycée Victor et Hélène Basch - Tous droits réservés
+                </p>
+            </div>
+        </footer>
+
+	</body>
+</html>   

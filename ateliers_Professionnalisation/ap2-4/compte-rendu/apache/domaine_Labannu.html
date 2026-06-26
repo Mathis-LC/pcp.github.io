@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Configurations Apache</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="./domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="./domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Test Noms de Domaine</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../test_domaine_Labannu/test_Domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../test_domaine_Local/test_domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../labannu/labannu.html">Configuration VM Labannu</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../pc01s300/pc01s300.html">Configuration VM PC01S300</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../webvislab/webvislab.html">Configuration VM Webvislab</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../reseaux/configuration_reseaux.html">Configuration Réseaux VM</a>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu Slowloris</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../slowloris/slowloris_attacker.html">Slowloris Attacker</a>
+                                        <a class="navbar-item" href="../slowloris/slowloris_patch.html">Slowloris Patch</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../gitlab/gitlab.html">Tuto SSH Gitlab</a>
+
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <h1 class="title is-size-3 mt-5 mb-6">
+                Sécurisation des répertoires des sites par défaut :
+            </h1>
+            
+            <div class="content">
+
+                <ul>
+                    <li>Pas de possibilité d'affichage du contenu des répertoires</li>
+                    <li>Pages par défaut : accueil.html, index.html, index.php</li>
+                    <li>Possibilité de sous-traiter toutes les configurations directement dans le répertoire de publication</li>
+                </ul>
+                
+                <p><strong>Branche 2.0</strong></p>
+
+                <pre><code>
+                <span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> applifrais.webvislab.galaxy-swiss.com
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/Applifrais/2.0/www
+                    <span class="hljs-attribute">DirectoryIndex</span> accueil.html index.html index.php
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/Applifrais/2.0/www&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-comment">#   Indexes: l'affichage du contenu des répertoires</span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes -Indexes
+
+                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
+                </code></pre>
+                
+                <p><strong>Branche Main</strong></p>
+
+                <pre><code>
+                <span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> beta.applifrais.webvislab.galaxy-swiss.com
+
+                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
+                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/Applifrais/beta/www
+                    <span class="hljs-attribute">DirectoryIndex</span> accueil.html index.html index.php
+
+                    <span class="hljs-comment"># Logs</span>
+                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
+                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
+
+                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
+                    <span class="hljs-section">&lt;Directory /var/www/Applifrais/beta/www&gt;</span>
+                        <span class="hljs-comment"># Désactive:</span>
+                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
+                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
+                        <span class="hljs-comment">#   Indexes: l'affichage du contenu des répertoires        </span>
+                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes -Indexes
+
+                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
+                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
+
+                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
+                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
+                    <span class="hljs-section">&lt;/Directory&gt;</span>
+                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
+                </code></pre>
+
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    © 2026 Mathis Lorent-Chemin - BTS SIO SISR · Lycée Victor et Hélène Basch - Tous droits réservés
+                </p>
+            </div>
+        </footer>
+
+	</body>
+</html>               

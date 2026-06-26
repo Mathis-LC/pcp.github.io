@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Portefeuille de compétences professionnelles</title>
+        
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
+
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../../../ateliers_Professionnalisation.html">Retour</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">Consignes</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">Missions</a>
+                        
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Configurations Apache</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Test Noms de Domaine</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../test_domaine_Labannu/test_Domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../test_domaine_Local/test_domaine_Local.html">Domaine Local</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../labannu/labannu.html">Configuration VM Labannu</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../pc01s300/pc01s300.html">Configuration VM PC01S300</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../webvislab/webvislab.html">Configuration VM Webvislab</a>
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="./configuration_reseaux.html">Configuration Réseaux VM</a>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link has-text-weight-bold has-text-white">Compte-rendu Slowloris</a>
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="../slowloris/slowloris_attacker.html">Slowloris Attacker</a>
+                                        <a class="navbar-item" href="../slowloris/slowloris_patch.html">Slowloris Patch</a>
+                                    </div>
+                            </div>
+
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../gitlab/gitlab.html">Tuto SSH Gitlab</a>
+
+                    </div>
+                </div>
+            </nav> 
+        </header>
+
+        <main class="section site-content mt-5">
+
+            <div class="content">
+
+                <p><strong>Webvislab</strong></p>
+
+                <pre><code>
+                <span class="hljs-attr">network:</span>
+                <span class="hljs-attr">  ethernets:</span>
+                <span class="hljs-attr">    enp3s0:</span>
+                <span class="hljs-attr">      dhcp4:</span> <span class="hljs-literal">false</span>
+                <span class="hljs-attr">      addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.20</span>/<span class="hljs-number">16</span>]
+                <span class="hljs-attr">      routes:</span>
+                <span class="hljs-attr">       - to:</span> default
+                <span class="hljs-attr">         via:</span> <span class="hljs-number">172.18</span><span class="hljs-number">.255</span><span class="hljs-number">.254</span>
+                <span class="hljs-attr">      nameservers:</span>
+                <span class="hljs-attr">        addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.30</span>]
+                </code></pre>
+
+                <p><strong>PC01S300</strong></p>
+
+                <pre><code>
+                <span class="hljs-attr">network:</span>
+                <span class="hljs-attr">  ethernets:</span>
+                <span class="hljs-attr">    enp3s0:</span>
+                <span class="hljs-attr">      dhcp4:</span> <span class="hljs-literal">false</span>
+                <span class="hljs-attr">      addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>/<span class="hljs-number">16</span>]
+                <span class="hljs-attr">      routes:</span>
+                <span class="hljs-attr">       - to:</span> default
+                <span class="hljs-attr">         via:</span> <span class="hljs-number">172.18</span><span class="hljs-number">.255</span><span class="hljs-number">.254</span>
+                <span class="hljs-attr">      nameservers:</span>
+                <span class="hljs-attr">        addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.30</span>]
+                </code></pre>
+
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    © 2026 Mathis Lorent-Chemin - BTS SIO SISR · Lycée Victor et Hélène Basch - Tous droits réservés
+                </p>
+            </div>
+        </footer>
+
+	</body>
+</html>               

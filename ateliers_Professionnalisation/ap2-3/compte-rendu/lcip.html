@@ -81,9 +81,9 @@
 
                 <p><code>sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl</code></p>
 
-                <p><code>curl -1sLf &#39;https://dl.cloudsmith.io/public/caddy/stable/gpg.key&#39; | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg</code></p>
+                <p><code>curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg</code></p>
 
-                <p><code>curl -1sLf &#39;https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt&#39; | sudo tee /etc/apt/sources.list.d/caddy-stable.list</code></p>
+                <p><code>curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list</code></p>
 
                 <p><code>sudo chmod o+r /usr/share/keyrings/caddy-stable-archive-keyring.gpg</code></p>
 
@@ -160,11 +160,11 @@
 
                 <p><strong>Question</strong></p>
 
-                <p><em>Caddy active-il par défaut l&#39;affichage des dossiers?</em></p>
+                <p><em>Caddy active-il par défaut l'affichage des dossiers?</em></p>
 
-                <p>Non caddy n&#39;active pas l&#39;affichage par défaut des dossiers</p>
+                <p>Non caddy n'active pas l'affichage par défaut des dossiers</p>
 
-                <p><em>Quelle option permet de l&#39;activer ?</em></p>
+                <p><em>Quelle option permet de l'activer ?</em></p>
 
                 <p><code>sudo nano ./Caddyfile</code></p>
 
@@ -186,16 +186,16 @@
                 
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
-                <p>L&#39;option permettant d&#39;activer l&#39;affichage des dossiers est : </p>
+                <p>L'option permettant d'activer l'affichage des dossiers est : </p>
                 
                 <pre><code>        <span class="hljs-section">file_server</span> {
                             <span class="hljs-attribute">browse</span>
                         }
                 </code></pre>
                 
-                <p><em>Comparer ce comportement avec celui d&#39;apache et nginx en terme de sécurité.</em></p>
+                <p><em>Comparer ce comportement avec celui d'apache et nginx en terme de sécurité.</em></p>
 
-                <p>Caddy est plus sécurisé avec sa configuration par défaut qu&#39;Apache qui contrairement à Caddy affiche les dossiers. Cependant dans sa configuration par défaut Caddy à le même niveau de sécurité qu&#39;Nginx puisque tous les deux n&#39;affichent pas les dossiers par défaut. </p>
+                <p>Caddy est plus sécurisé avec sa configuration par défaut qu'Apache qui contrairement à Caddy affiche les dossiers. Cependant dans sa configuration par défaut Caddy à le même niveau de sécurité qu'Nginx puisque tous les deux n'affichent pas les dossiers par défaut. </p>
 
                 <p><code>sudo apt install php-fpm</code></p>
 
@@ -264,7 +264,7 @@
 
                 <p>On n’a pas SQLite</p>
 
-                <p><em>Tester l&#39;accès à l&#39;URL suivante : <a href="http://IP/ScriptsSQL/gsbfrais_structure.sql">http://IP/ScriptsSQL/gsbfrais_structure.sql</a></em></p>
+                <p><em>Tester l'accès à l'URL suivante : <a href="http://IP/ScriptsSQL/gsbfrais_structure.sql">http://IP/ScriptsSQL/gsbfrais_structure.sql</a></em></p>
 
                 <p><strong>Question</strong> </p>
 

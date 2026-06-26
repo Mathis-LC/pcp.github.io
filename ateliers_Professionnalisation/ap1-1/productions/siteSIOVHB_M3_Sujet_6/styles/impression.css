@@ -1,0 +1,9 @@
+@media print {
+  aside, nav, footer, a, header {
+    display: none;
+  }
+  section {
+    display: block;
+    font-family: 'Times New Roman';
+  }
+}

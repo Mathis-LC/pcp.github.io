@@ -73,3 +73,14 @@ body {
         height: auto;
     }
 }
+
+
+ /* Ce CSS permet d’indiquer que les images sont cliquables (+agrandissement au survol de la souris). */
+.image-clickable {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.image-clickable:hover {
+    transform: scale(1.02);
+}

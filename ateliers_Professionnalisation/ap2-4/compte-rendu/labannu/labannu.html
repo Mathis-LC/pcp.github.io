@@ -89,61 +89,73 @@
             <h1 class="title is-size-4 mt-6 mb-3">On créer une nouvelle zone</h1>
 
             <div class="content">
-                <p><img src="./images/image1.png" alt="image1" title="image1"></p>
-                <p><img src="./images/image2.png" alt="image2" title="image2"></p>
+                <p><img src="./images/image1.png" alt="image1" class="image-clickable"></p>
+                <p><img src="./images/image2.png" alt="image2" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">On décoche <em>"Enregistrer la zone dans Active Directory"</em></h1>
 
             <div class="content">
-                <p><img src="./images/image3.png" alt="image3" title="image3"></p>
-                <p><img src="./images/image4.png" alt="image4" title="image4"></p>
+                <p><img src="./images/image3.png" alt="image3" class="image-clickable"></p>
+                <p><img src="./images/image4.png" alt="image4" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">On créer notre zone (domaine racine)</h1>
 
             <div class="content">            
-                <p><img src="./images/image5.png" alt="image5" title="image5"></p>
-                <p><img src="./images/image6.png" alt="image6" title="image6"></p>
+                <p><img src="./images/image5.png" alt="image5" class="image-clickable"></p>
+                <p><img src="./images/image6.png" alt="image6" class="image-clickable"></p>
             </div>
                 
             <h1 class="title is-size-4 mt-6 mb-3">On laisse l'option par défaut <em>"Ne pas autoriser les mises à jour dynamiques"</em></h1>
 
             <div class="content">            
-                <p><img src="./images/image7.png" alt="image7" title="image7"></p>
-                <p><img src="./images/image8.png" alt="image8" title="image8"></p>
+                <p><img src="./images/image7.png" alt="image7" class="image-clickable"></p>
+                <p><img src="./images/image8.png" alt="image8" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">On créer un <em>"Nouvel hôte (A ou AAAA)"</em></h1>
 
             <div class="content">            
-                <p><img src="./images/image9.png" alt="image9" title="image9"></p>
+                <p><img src="./images/image9.png" alt="image9" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">On met le nom de domaine <em>"applifrais.webvislab"</em> et on l'associe à l'ip du serveur webvislab</h1>
 
             <div class="content">            
-                <p><img src="./images/image10.png" alt="image10" title="image10"></p>
-                <p><img src="./images/image11.png" alt="image11" title="image11"></p>
+                <p><img src="./images/image10.png" alt="image10" class="image-clickable"></p>
+                <p><img src="./images/image11.png" alt="image11" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">On met le nom de domaine <em>"beta.applifrais.webvislab"</em> et on l'associe à l'ip du serveur webvislab</h1>
                 
             <div class="content">                        
-                <p><img src="./images/image12.png" alt="image12" title="image12"></p>
-                <p><img src="./images/image13.png" alt="image13" title="image13"></p>
+                <p><img src="./images/image12.png" alt="image12" class="image-clickable"></p>
+                <p><img src="./images/image13.png" alt="image13" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">On devrait obtenir l'arborescence suivante :</h1>
 
             <div class="content">            
-                <p><img src="./images/image14.png" alt="image14" title="image14"></p>
+                <p><img src="./images/image14.png" alt="image14" class="image-clickable"></p>
             </div>
 
             <h1 class="title is-size-4 mt-6 mb-3">Et on devrait obtenir la configuration suivante si l'on clique sur le dossier <em>"applifrais"</em></h1>
 
             <div class="content">            
-                <p><img src="./images/image15.png" alt="image15" title="image15"></p>
+                <p><img src="./images/image15.png" alt="image15" class="image-clickable"></p>
+            </div>
+
+            <div id="image-modal" class="modal">
+                <div class="modal-background"></div>
+
+                <div class="modal-content">
+                    <figure class="image">
+                        <img id="modal-image" src="" alt="">
+                    </figure>
+                </div>
+
+                <button class="modal-close is-large" aria-label="Fermer"></button>
             </div>
 
         </main>
@@ -155,6 +167,8 @@
                 </p>
             </div>
         </footer>
+
+        <script src="../../../../static/js/image-modal.js"></script>
 
 	</body>
 </html>   

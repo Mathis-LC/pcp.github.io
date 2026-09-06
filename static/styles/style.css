@@ -9,6 +9,7 @@ body {
     flex: 1;
 }
 
+
 /* Ce CSS permet d'aligner la hauteur des cartes dans une même ligne et étire leur contenu. */
 .columns {
     align-items: stretch;
@@ -22,4 +23,53 @@ body {
 
 .card-content {
     flex-grow: 1;
+}
+
+
+/* Ce CSS permet de personnaliser la couleur du bouton du menu mobile et de conserver cette couleur au survol et lorsque le menu est ouvert. */
+
+.navbar-burger {
+    color: var(--bulma-success) !important;
+}
+
+.navbar-burger:hover {
+    background-color: transparent !important;
+    color: var(--bulma-success) !important;
+}
+
+.navbar-burger.is-active {
+    color: var(--bulma-danger) !important;
+    background-color: transparent !important;
+}
+
+
+/* Ce CSS permet d'afficher les sous-menus de la navbar au survol sur ordinateur. */
+
+@media screen and (min-width: 1024px) {
+
+    .navbar-item.has-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+
+/* Ce CSS permet de gérer les sous-menus de la navbar sur téléphone. */
+
+@media screen and (max-width: 1023px) {
+
+    .navbar-item.has-dropdown .dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .navbar-item.has-dropdown.is-active .dropdown-menu {
+        display: block;
+    }
+
+    .navbar-item.has-dropdown.is-active {
+        display: block;
+        height: auto;
+    }
 }

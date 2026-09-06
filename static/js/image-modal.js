@@ -6,24 +6,27 @@ const modalImage = document.getElementById("modal-image");
 
 if (modal && modalImage) {
 
-    images.forEach(image => {
-        image.addEventListener("click", () => {
+    const closeButton = modal.querySelector(".modal-close");
+    const background = modal.querySelector(".modal-background");
+
+    function openModal(image) {
+        if (window.innerWidth <= 1023) {
             modalImage.src = image.src;
             modalImage.alt = image.alt;
-
             modal.classList.add("is-active");
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove("is-active");
+    }
+
+    images.forEach(image => {
+        image.addEventListener("click", () => {
+            openModal(image);
         });
     });
 
-    const closeButton = modal.querySelector(".modal-close");
-
-    closeButton.addEventListener("click", () => {
-        modal.classList.remove("is-active");
-    });
-
-    const background = modal.querySelector(".modal-background");
-
-    background.addEventListener("click", () => {
-        modal.classList.remove("is-active");
-    });
+    closeButton.addEventListener("click", closeModal);
+    background.addEventListener("click", closeModal);
 }

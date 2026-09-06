@@ -75,12 +75,17 @@ body {
 }
 
 
- /* Ce CSS permet d’indiquer que les images sont cliquables (+agrandissement au survol de la souris). */
-.image-clickable {
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
+/* Ce CSS permet d’indiquer que les images sont cliquables sur téléphone. */
 
-.image-clickable:hover {
-    transform: scale(1.02);
+@media (max-width: 1023px) {
+    .image-clickable {
+        cursor: pointer;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .image-clickable:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
 }

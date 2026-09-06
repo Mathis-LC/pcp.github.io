@@ -77,7 +77,8 @@ body {
 
 /* Ce CSS permet d’indiquer que les images sont cliquables sur téléphone. */
 
-@media (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
+
     .image-clickable {
         cursor: pointer;
         transition: transform 0.15s ease, opacity 0.15s ease;

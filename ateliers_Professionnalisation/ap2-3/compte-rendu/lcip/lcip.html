@@ -7,11 +7,11 @@
 
         <title>Portefeuille de compétences professionnelles</title>
         
-        <link rel="stylesheet" href="../../../static/styles/bulma.css">
-        <link rel="stylesheet" href="../../../static/styles/style.css">
-        <link rel="icon" type="image/png" href="../../../static/icones/icone-site.png"> 
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
 
-        <script src="../../../static/js/navbar.js" defer></script>
+        <script src="../../../../static/js/navbar.js" defer></script>
     </head>
 
     <body>
@@ -19,8 +19,8 @@
             <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
 
                 <div class="navbar-brand">
-                    <a class="navbar-item" title="Retour vers l'accueil" href="../../../index.html">
-                        <img src="../../../static/icones/icone-site.png" alt="Icône du Site">
+                    <a class="navbar-item" title="Retour vers l'accueil" href="../../../../index.html">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
                     </a>
 
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -33,15 +33,15 @@
                 <div class="navbar-menu">
                     <div class="navbar-start">
 
-                        <a class="navbar-item has-text-weight-bold has-text-danger" href="../../../ateliers_Professionnalisation.html">
+                        <a class="navbar-item has-text-weight-bold has-text-danger" href="../../../../ateliers_Professionnalisation.html">
                             Retour
                         </a>
 
-                        <a class="navbar-item has-text-weight-bold has-text-white" href="../consignes.html">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">
                             Consignes
                         </a>
 
-                        <a class="navbar-item has-text-weight-bold has-text-white" href="../missions.html">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">
                             Missions
                         </a>
                         
@@ -51,11 +51,11 @@
                             </a>
 
                             <div class="navbar-dropdown dropdown-menu">
-                                <a class="navbar-item" href="./lamp.html">
+                                <a class="navbar-item" href="../lamp/lamp.html">
                                     LAMP
                                 </a>
 
-                                <a class="navbar-item" href="./lepp.html">
+                                <a class="navbar-item" href="../lepp/lepp.html">
                                     LEPP
                                 </a>
 
@@ -80,7 +80,6 @@
             </h1>
 
             <div class="content">
-
                 <p>Une fois Debian 13 installé on se connecte à la vm</p>
 
                 <p>Puis on installe sudo pour pouvoir installer Caddy et les autres logiciels</p>
@@ -96,9 +95,13 @@
                 <p>Après avoir installer sudo on va pouvoir mettre la vm en adresse IP statique</p>
 
                 <p><code>sudo nano /etc/network/interfaces</code></p>
+            </div>
 
-                <!-- -->
+            <div class="content">
+                <p><img src="./images/image1.png" alt="image1" class="image-clickable"></p>
+            </div>
                 
+            <div class="content">
                 <p><code>sudo systemctl restart networking.service</code></p>
 
                 <p>Puis on suit la documentation officielle pour installer Caddy</p>
@@ -164,9 +167,13 @@
                 <p><code>sudo cp Caddyfile Caddyfile.bak</code></p>
 
                 <p><code>sudo nano ./Caddyfile</code></p>
+            </div>
 
-                <!-- -->
+            <div class="content">
+                <p><img src="./images/image2.png" alt="image2" class="image-clickable"></p>
+            </div>
                 
+            <div class="content">
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
                 <p><strong>Question</strong></p>
@@ -178,15 +185,23 @@
                 <p><em>Quelle option permet de l'activer ?</em></p>
 
                 <p><code>sudo nano ./Caddyfile</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image3.png" alt="image3" class="image-clickable"></p>
+            </div>
+            
+            <div class="content">
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
                 <p>L'option permettant d'activer l'affichage des dossiers est : </p>
+            </div>
                 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image4.png" alt="image4" class="image-clickable"></p>
+            </div>
+            
+            <div class="content">
                 <p><em>Comparer ce comportement avec celui d'apache et nginx en terme de sécurité.</em></p>
 
                 <p>Caddy est plus sécurisé avec sa configuration par défaut qu'Apache qui contrairement à Caddy affiche les dossiers. Cependant dans sa configuration par défaut Caddy à le même niveau de sécurité qu'Nginx puisque tous les deux n'affichent pas les dossiers par défaut.</p>
@@ -206,9 +221,13 @@
                 <p><code>sudo systemctl enable php8.4-fpm</code></p>
 
                 <p><code>sudo nano ./Caddyfile</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image5.png" alt="image5" class="image-clickable"></p>
+            </div>
+            
+            <div class="content">            
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
                 <p><code>cd /var/www/applifrais</code></p>
@@ -254,9 +273,13 @@
                 <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
 
                 <p><code>sudo nano /etc/caddy/Caddyfile</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image6.png" alt="image6" class="image-clickable"></p>
+            </div>
+            
+            <div class="content">
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
                 <p><code>sudo apt install sqlite3 php8.4-sqlite3</code></p>
@@ -274,7 +297,6 @@
                 <p><em>Analyser ce comportement sur la configuration par défaut de caddy?</em></p>
 
                 <p>La configuration par défaut de Caddy parvient à gérer à la fois les fichiers dynamiques et statiques, contrairement à Apache ou Nginx, pour lesquels il faut respectivement un fichier .htaccess ou modifier le fichier de configuration de Nginx.</p>
-
             </div>
 
         </main>

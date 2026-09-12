@@ -7,11 +7,11 @@
 
         <title>Portefeuille de compétences professionnelles</title>
         
-        <link rel="stylesheet" href="../../../static/styles/bulma.css">
-        <link rel="stylesheet" href="../../../static/styles/style.css">
-        <link rel="icon" type="image/png" href="../../../static/icones/icone-site.png"> 
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
 
-        <script src="../../../static/js/navbar.js" defer></script>
+        <script src="../../../../static/js/navbar.js" defer></script>
     </head>
 
     <body>
@@ -19,8 +19,8 @@
             <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
 
                 <div class="navbar-brand">
-                    <a class="navbar-item" title="Retour vers l'accueil" href="../../../index.html">
-                        <img src="../../../static/icones/icone-site.png" alt="Icône du Site">
+                    <a class="navbar-item" title="Retour vers l'accueil" href="../../../../index.html">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
                     </a>
 
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -33,15 +33,15 @@
                 <div class="navbar-menu">
                     <div class="navbar-start">
 
-                        <a class="navbar-item has-text-weight-bold has-text-danger" href="../../../ateliers_Professionnalisation.html">
+                        <a class="navbar-item has-text-weight-bold has-text-danger" href="../../../../ateliers_Professionnalisation.html">
                             Retour
                         </a>
                         
-                        <a class="navbar-item has-text-weight-bold has-text-white" href="../consignes.html">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">
                             Consignes
                         </a>
 
-                        <a class="navbar-item has-text-weight-bold has-text-white" href="../missions.html">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">
                             Missions
                         </a>
                         
@@ -51,7 +51,7 @@
                             </a>
 
                             <div class="navbar-dropdown dropdown-menu">
-                                <a class="navbar-item" href="./lamp.html">
+                                <a class="navbar-item" href="../lamp/lamp.html">
                                     LAMP
                                 </a>
 
@@ -59,7 +59,7 @@
                                     LEPP
                                 </a>
 
-                                <a class="navbar-item" href="./lcip.html">
+                                <a class="navbar-item" href="../lcip/lcip.html">
                                     LCIP
                                 </a>
                             </div>
@@ -88,9 +88,13 @@
                 <p>Puis on modifie la configuration ip pour en mettre une qui est attribué à notre binôme</p>
 
                 <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image1.png" alt="image1" class="image-clickable"></p>
+            </div>
+
+            <div class="content">
                 <p><code>sudo netplan apply</code></p>
 
                 <p><code>whereis apache2</code></p>
@@ -156,9 +160,13 @@
                 <p><code>cd /etc/nginx/sites-available/</code></p>
 
                 <p><code>sudo nano ./applifrais</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image2.png" alt="image2" class="image-clickable"></p>
+            </div>
+
+            <div class="content">
                 <p><code>sudo ln -s /etc/nginx/sites-available/applifrais /etc/nginx/sites-enabled/</code></p>
 
                 <p><code>cd /etc/nginx/sites-enabled/</code></p>
@@ -190,9 +198,13 @@
                 <p><code>sudo systemctl enable php8.3-fpm</code></p>
 
                 <p><code>sudo nano /etc/nginx/sites-available/applifrais</code></p>
+            </div>
 
-                <!-- -->
+            <div class="content">
+                <p><img src="./images/image3.png" alt="image3" class="image-clickable"></p>
+            </div>
                 
+            <div class="content">
                 <p><code>sudo systemctl reload nginx.service</code></p>
 
                 <p><code>cd /var/www/applifrais/</code></p>
@@ -238,9 +250,13 @@
                 <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
 
                 <p><code>sudo nano /etc/nginx/sites-available/applifrais</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image4.png" alt="image4" class="image-clickable"></p>
+            </div>
+
+            <div class="content">
                 <p><code>sudo systemctl reload nginx.service</code></p>
 
                 <p><code>sudo apt install postgresql</code></p>
@@ -248,11 +264,14 @@
                 <p><code>sudo apt install php-pgsql</code></p>
 
                 <p><code>sudo nano /etc/nginx/sites-available/applifrais</code></p>
+            </div>
 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image5.png" alt="image5" class="image-clickable"></p>
+            </div>
+
+            <div class="content">
                 <p><code>sudo systemctl reload nginx.service</code></p>
-            
             </div>
             
         </main>

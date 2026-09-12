@@ -7,11 +7,11 @@
 
         <title>Portefeuille de compétences professionnelles</title>
         
-        <link rel="stylesheet" href="../../../static/styles/bulma.css">
-        <link rel="stylesheet" href="../../../static/styles/style.css">
-        <link rel="icon" type="image/png" href="../../../static/icones/icone-site.png"> 
+        <link rel="stylesheet" href="../../../../static/styles/bulma.css">
+        <link rel="stylesheet" href="../../../../static/styles/style.css">
+        <link rel="icon" type="image/png" href="../../../../static/icones/icone-site.png"> 
 
-        <script src="../../../static/js/navbar.js" defer></script>
+        <script src="../../../../static/js/navbar.js" defer></script>
     </head>
 
     <body>
@@ -19,8 +19,8 @@
             <nav class="navbar is-fixed-top is-dark" aria-label="main navigation">
 
                 <div class="navbar-brand">
-                    <a class="navbar-item" title="Retour vers l'accueil" href="../../../index.html">
-                        <img src="../../../static/icones/icone-site.png" alt="Icône du Site">
+                    <a class="navbar-item" title="Retour vers l'accueil" href="../../../../index.html">
+                        <img src="../../../../static/icones/icone-site.png" alt="Icône du Site">
                     </a>
 
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -33,15 +33,15 @@
                 <div class="navbar-menu">
                     <div class="navbar-start">
 
-                        <a class="navbar-item has-text-weight-bold has-text-danger" href="../../../ateliers_Professionnalisation.html">
+                        <a class="navbar-item has-text-weight-bold has-text-danger" href="../../../../ateliers_Professionnalisation.html">
                             Retour
                         </a>
 
-                        <a class="navbar-item has-text-weight-bold has-text-white" href="../consignes.html">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../consignes.html">
                             Consignes
                         </a>
 
-                        <a class="navbar-item has-text-weight-bold has-text-white" href="../missions.html">
+                        <a class="navbar-item has-text-weight-bold has-text-white" href="../../missions.html">
                             Missions
                         </a>
                         
@@ -55,11 +55,11 @@
                                     LAMP
                                 </a>
 
-                                <a class="navbar-item" href="./lepp.html">
+                                <a class="navbar-item" href="../lepp/lepp.html">
                                     LEPP
                                 </a>
 
-                                <a class="navbar-item" href="./lcip.html">
+                                <a class="navbar-item" href="../lcip/lcip.html">
                                     LCIP
                                 </a>
                             </div>
@@ -80,7 +80,6 @@
             </h1>
 
             <div class="content">
-
                 <p>On créer une vm à partir du modèle us24 init ssh</p>
 
                 <p>Une fois la VM démarré on se connecte en SSH</p>
@@ -88,11 +87,13 @@
                 <p>Puis on modifie la configuration ip pour en mettre une qui est attribué à notre binôme</p>
 
                 <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></p>
+            </div>
 
-                <!-- -->
+            <div class="content">
+                <p><img src="./images/image1.png" alt="image1" class="image-clickable"></p>
+            </div>
                 
-                <br>
-
+            <div class="content">
                 <p><code>sudo netplan apply</code></p>
 
                 <p><code>whereis apache2</code></p>
@@ -154,9 +155,13 @@
                 <p><code>cd /etc/apache2/sites-available/</code></p>
 
                 <p><code>sudo nano applifrais.conf</code></p>
+            </div>
 
-                <!-- -->
+            <div class="content">
+                <p><img src="./images/image2.png" alt="image2" class="image-clickable"></p>
+            </div>
                 
+            <div class="content">
                 <p>Il ne faut pas oublier de fermer la balise <code> /VirtualHost </code></p>
 
                 <p><code>sudo apache2ctl configtest</code></p>
@@ -230,9 +235,13 @@
                 <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
 
                 <p><code>sudo nano /etc/apache2/sites-available/applifrais.conf</code></p>
+            </div>
                 
-                <!-- -->
-                
+            <div class="content">
+                <p><img src="./images/image3.png" alt="image3" class="image-clickable"></p>
+            </div>
+            
+            <div class="content">
                 <p><code>sudo systemctl reload apache2.service</code></p>
 
                 <p><code>sudo apt install mysql-server</code></p>
@@ -302,15 +311,21 @@
                 <p><code>cd /var/www/applifrais/ScriptsSQL</code></p>
 
                 <p><code>sudo mysql</code></p>
+            </div>
 
-                <!-- -->
+            <!-- -->
                 
+            <div class="content">
                 <p><code>sudo apt install php-mysql</code></p>
 
                 <p><code>sudo nano /etc/apache2/sites-available/applifrais.conf</code></p>
+            </div>
 
-                <!-- -->
+            <div class="content">
+                <p><img src="./images/image5.png" alt="image5" class="image-clickable"></p>
+            </div>
                 
+            <div class="content">
                 <p><code>sudo systemctl reload apache2.service</code></p>
 
                 <p><code>sudo a2enmod rewrite</code></p>

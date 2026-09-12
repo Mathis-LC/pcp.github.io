@@ -311,9 +311,21 @@
                 <p><code>cd /var/www/applifrais/ScriptsSQL</code></p>
 
                 <p><code>sudo mysql</code></p>
-            </div>
 
-            <!-- -->
+                <p><code>CREATE DATABASE gsbfrais;</code></p>
+
+                <p><code>USE gsbfrais;</code></p>
+
+                <p><code>SOURCE ./gsbfrais_structure.sql;</code></p>
+
+                <p><code>SOURCE ./gsbfrais_data.sql;</code></p>
+
+                <p><code>CREATE USER 'usergsb'@'localhost' IDENTIFIED BY '<em>[password]</em>';</code></p>
+
+                <p><code>GRANT ALL ON gsbfrais.* TO 'usergsb'@'localhost';</code></p>
+
+                <p><code></code>EXIT</code></p>
+            </div>
                 
             <div class="content">
                 <p><code>sudo apt install php-mysql</code></p>
@@ -322,7 +334,7 @@
             </div>
 
             <div class="content">
-                <p><img src="./images/image5.png" alt="image5" class="image-clickable"></p>
+                <p><img src="./images/image4.png" alt="image4" class="image-clickable"></p>
             </div>
                 
             <div class="content">
@@ -331,7 +343,6 @@
                 <p><code>sudo a2enmod rewrite</code></p>
 
                 <p><code>sudo systemctl restart apache2.service</code></p>
-
             </div>
             
         </main>

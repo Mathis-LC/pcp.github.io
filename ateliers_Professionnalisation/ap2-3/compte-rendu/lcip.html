@@ -81,7 +81,7 @@
 
             <div class="content">
 
-                <p>Une fois Debian 13 installé on se connecte à la vm </p>
+                <p>Une fois Debian 13 installé on se connecte à la vm</p>
 
                 <p>Puis on installe sudo pour pouvoir installer Caddy et les autres logiciels</p>
 
@@ -93,18 +93,14 @@
 
                 <p><code>exit</code></p>
 
-                <p>Après avoir installer sudo on va pouvoir mettre la vm en adresse IP statique </p>
+                <p>Après avoir installer sudo on va pouvoir mettre la vm en adresse IP statique</p>
 
                 <p><code>sudo nano /etc/network/interfaces</code></p>
 
-                <pre><code>allow-hotplug enp3s0
-                iface enp3s0 inet static 
-                address <span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.238</span>/<span class="hljs-number">23</span> 
-                gateway <span class="hljs-number">100.115</span><span class="hljs-number">.29</span><span class="hljs-number">.254</span> 
-                dns-nameservers <span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.41</span> <span class="hljs-number">100.115</span><span class="hljs-number">.28</span><span class="hljs-number">.42</span>
-                </code></pre>
+                <!-- -->
                 
                 <p><code>sudo systemctl restart networking.service</code></p>
+
                 <p>Puis on suit la documentation officielle pour installer Caddy</p>
 
                 <p><code>sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl</code></p>
@@ -135,7 +131,7 @@
 
                 <p><code>sudo nft list ruleset</code></p>
 
-                <p>Installer sur notre pc le fichier suivant :  </p>
+                <p>Installer sur notre pc le fichier suivant : </p>
 
                 <p><em>Applifrais_static.zip</em></p>
 
@@ -149,7 +145,7 @@
 
                 <p><code>whereis unzip</code></p>
 
-                <p>Si non trouvé </p>
+                <p>Si non trouvé</p>
 
                 <p><code>sudo apt update</code></p>
 
@@ -169,20 +165,7 @@
 
                 <p><code>sudo nano ./Caddyfile</code></p>
 
-                <pre><code>:<span class="hljs-number">80</span> {
-                        <span class="hljs-comment"># Set this path to your site's directory.</span>
-                        root * /<span class="hljs-keyword">var</span>/www/applifrais
-
-                        <span class="hljs-comment"># Enable the static file server.</span>
-                        file_server
-
-                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
-                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
-
-                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
-                        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
-                }
-                </code></pre>
+                <!-- -->
                 
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
@@ -196,34 +179,17 @@
 
                 <p><code>sudo nano ./Caddyfile</code></p>
 
-                <pre><code>:<span class="hljs-number">80</span> {
-                        <span class="hljs-comment"># Set this path to your site's directory.</span>
-                        root * /<span class="hljs-keyword">var</span>/www/applifrais
-
-                        <span class="hljs-comment"># Enable the static file server.</span>
-                        file_server {
-                            browse
-                        }
-                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
-                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
-
-                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
-                        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
-                }
-                </code></pre>
+                <!-- -->
                 
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
                 <p>L'option permettant d'activer l'affichage des dossiers est : </p>
                 
-                <pre><code>        <span class="hljs-section">file_server</span> {
-                            <span class="hljs-attribute">browse</span>
-                        }
-                </code></pre>
+                <!-- -->
                 
                 <p><em>Comparer ce comportement avec celui d'apache et nginx en terme de sécurité.</em></p>
 
-                <p>Caddy est plus sécurisé avec sa configuration par défaut qu'Apache qui contrairement à Caddy affiche les dossiers. Cependant dans sa configuration par défaut Caddy à le même niveau de sécurité qu'Nginx puisque tous les deux n'affichent pas les dossiers par défaut. </p>
+                <p>Caddy est plus sécurisé avec sa configuration par défaut qu'Apache qui contrairement à Caddy affiche les dossiers. Cependant dans sa configuration par défaut Caddy à le même niveau de sécurité qu'Nginx puisque tous les deux n'affichent pas les dossiers par défaut.</p>
 
                 <p><code>sudo apt install php-fpm</code></p>
 
@@ -231,7 +197,7 @@
 
                 <p><em>Quelle version de php a été installée ?</em></p>
 
-                <p>PHP 8.4.16 </p>
+                <p>PHP 8.4.16</p>
 
                 <p>Pour savoir on fait <code>php -v</code></p>
 
@@ -241,22 +207,7 @@
 
                 <p><code>sudo nano ./Caddyfile</code></p>
 
-                <pre><code>:<span class="hljs-number">80</span> {
-                        <span class="hljs-comment"># Set this path to your site's directory.</span>
-                        root * /var/www/applifrais
-
-                        <span class="hljs-comment"># Enable the static file server.</span>
-                        file_server {
-                            browse
-                        }
-                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
-                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
-
-                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
-                        php_fastcgi unix//<span class="hljs-keyword">run</span><span class="bash">/php/php8.4-fpm.sock
-                </span>        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
-                }
-                </code></pre>
+                <!-- -->
                 
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
@@ -266,11 +217,11 @@
 
                 <p><code>cd /home/stssio/</code></p>
 
-                <p>Installer sur notre pc le fichier  </p>
+                <p>Installer sur notre pc le fichier</p>
 
                 <p><em>ApplifraisV1.zip</em></p>
 
-                <p>Via sftp transférer <em>ApplifraisV1.zip</em> vers <code>/home/stssio</code> </p>
+                <p>Via sftp transférer <em>ApplifraisV1.zip</em> vers <code>/home/stssio</code></p>
 
                 <p><code>sudo cp -r ./ApplifraisV1.zip /var/www/applifrais</code></p>
 
@@ -278,7 +229,7 @@
 
                 <p><code>sudo unzip ApplifraisV1.zip</code></p>
 
-                <p><code>sudo chmod -R 755 ./www/</code> </p>
+                <p><code>sudo chmod -R 755 ./www/</code></p>
 
                 <p><code>sudo chmod -R 755 ./ScriptsSQL/</code></p>
 
@@ -288,38 +239,23 @@
 
                 <p><em>Expliquer cette erreur?</em></p>
 
-                <p><code>Fatal error: Uncaught PDOException: could not find driver in /var/www/applifrais/www/include/class.pdogsb.inc.php:28 Stack trace: #0 /var/www/applifrais/www/include/class.pdogsb.inc.php(28): PDO-&gt;__construct() #1 /var/www/applifrais/www/index.php(12): PdoGsb-&gt;__construct() #2 {main} thrown in /var/www/applifrais/www/include/class.pdogsb.inc.php on line 28</code></p>
+                <p><code>Fatal error: Uncaught PDOException: could not find driver in /var/www/applifrais/www/include/class.pdogsb.inc.php:28 Stack trace: #0 /var/www/applifrais/www/include/class.pdogsb.inc.php(28): PDO->__construct() #1 /var/www/applifrais/www/index.php(12): PdoGsb->__construct() #2 {main} thrown in /var/www/applifrais/www/include/class.pdogsb.inc.php on line 28</code></p>
 
                 <p>On n’a pas SQLite</p>
 
                 <p><em>Tester l'accès à l'URL suivante : <strong>http://IP/ScriptsSQL/gsbfrais_structure.sql</strong></em></p>
 
-                <p><strong>Question</strong> </p>
+                <p><strong>Question</strong></p>
 
                 <p><em>Analyser les problèmes de sécurité engendrés par cette configuration.</em></p>
 
-                <p>Si l’on accède à ce lien cela nous télécharge le fichier pour la création de la base de données utilisé par le serveur </p>
+                <p>Si l’on accède à ce lien cela nous télécharge le fichier pour la création de la base de données utilisé par le serveur</p>
 
                 <p><em>Modifier votre configuration pour ne servir que le contenu du dossier www</em></p>
 
                 <p><code>sudo nano /etc/caddy/Caddyfile</code></p>
 
-                <pre><code>:<span class="hljs-number">80</span> {
-                        <span class="hljs-comment"># Set this path to your site's directory.</span>
-                        root * <span class="hljs-regexp">/var/</span>www<span class="hljs-regexp">/applifrais/</span>www
-
-                        <span class="hljs-comment"># Enable the static file server.</span>
-                        file_server {
-                            browse
-                        }
-                        <span class="hljs-comment"># Another common task is to set up a reverse proxy:</span>
-                        <span class="hljs-comment"># reverse_proxy localhost:8080</span>
-
-                        <span class="hljs-comment"># Or serve a PHP site through php-fpm:</span>
-                        php_fastcgi unix<span class="hljs-regexp">//</span>run<span class="hljs-regexp">/php/</span>php8.<span class="hljs-number">4</span>-fpm.sock
-                        <span class="hljs-comment"># php_fastcgi localhost:9000</span>
-                }
-                </code></pre>
+                <!-- -->
                 
                 <p><code>sudo systemctl reload caddy.service</code></p>
 
@@ -337,7 +273,7 @@
 
                 <p><em>Analyser ce comportement sur la configuration par défaut de caddy?</em></p>
 
-                <p>La configuration par défaut de Caddy parvient à gérer à la fois les fichiers dynamiques et statiques, contrairement à Apache ou Nginx, pour lesquels il faut respectivement un fichier .htaccess ou modifier le fichier de configuration de Nginx.</p>
+                <p>La configuration par défaut de Caddy parvient à gérer à la fois les fichiers dynamiques et statiques, contrairement à Apache ou Nginx, pour lesquels il faut respectivement un fichier .htaccess ou modifier le fichier de configuration de Nginx.</p>
 
             </div>
 

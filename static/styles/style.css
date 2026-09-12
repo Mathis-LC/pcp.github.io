@@ -80,7 +80,7 @@ body {
 @media screen and (max-width: 1023px) {
 
     .image-clickable {
-        cursor: pointer;
+        cursor: zoom-in;
         transition: transform 0.15s ease, opacity 0.15s ease;
         -webkit-tap-highlight-color: transparent;
     }

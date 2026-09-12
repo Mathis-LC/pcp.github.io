@@ -38,8 +38,8 @@
                             <div class="navbar-item has-dropdown">
                                 <a class="navbar-link has-text-weight-bold has-text-white dropdown-toggle">Configurations Apache</a>
                                     <div class="navbar-dropdown dropdown-menu">
-                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
-                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                        <a class="navbar-item" href="../apache/domaine_Labannu/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local/domaine_Local.html">Domaine Local</a>
                                     </div>
                             </div>
 
@@ -82,21 +82,20 @@
 
                 <p><strong>Tuto Gitlab clé SSH</strong></p>
 
-                    <pre><code>
-                    Lancer git-bash
-                    Créer une <span class="hljs-keyword">cl</span>é SSH: ssh-keygen -<span class="hljs-keyword">o</span>. (appuyer sur entree pour chaque question, ne pas mettre de mot de passe)
-                    Afficher votre <span class="hljs-keyword">cl</span>é publique: <span class="hljs-keyword">cat</span> ~/.ssh/id_ed25519.pub
-                    Ajouter cette <span class="hljs-keyword">cl</span>é dans gitla<span class="hljs-variable">b:</span>
-                    Dans <span class="hljs-keyword">la</span> barre supérieure, dans <span class="hljs-keyword">le</span> coin supérieur droit, sélectionnez votre avatar.
-                    Sélectionnez <span class="hljs-string">"Préférences"</span>.
-                    Dans <span class="hljs-keyword">la</span> barre <span class="hljs-keyword">lat</span>érale de gauche, sélectionnez <span class="hljs-string">"Clés SSH"</span>.
-                    Cliquez sur Ajouter une <span class="hljs-keyword">cl</span>é.
-                    Dans <span class="hljs-keyword">le</span> champ « Clé », collez votre <span class="hljs-keyword">cl</span>é publique.
-                    Tester votre identification :
-
-                    $&gt; ssh -T git@[url du serveur gitlab]
-                    Welcome <span class="hljs-keyword">to</span> Gitlab, @[utilisateur]!
-                    </code></pre>
+                <blockquote>
+                    <p>Lancer git-bash</p>
+                    <p>Créer une clé SSH: <code>ssh-keygen -o</code> (appuyer sur entrée pour chaque question, ne pas mettre de mot de passe)</p>
+                    <p>Afficher votre clé publique : <code>cat ~/.ssh/id_ed25519.pub</code></p>
+                    <p>Ajouter cette clé dans gitlab : </p>
+                    <p>Dans la barre supérieure, dans le coin supérieur droit, sélectionnez votre avatar.</p>
+                    <p>Sélectionnez "Préférences".</p>
+                    <p>Dans la barre latérale de gauche, sélectionnez "Clés SSH".</p>
+                    <p>Cliquez sur Ajouter une clé.</p>
+                    <p>Dans le champ « Clé », collez votre clé publique.</p>
+                    <p>Tester votre identification : </p>
+                    <p><code>$> ssh -T git@[url du serveur gitlab]</code></p>
+                    <p>Welcome to Gitlab, <code>@[utilisateur]</code> !</p>
+                </blockquote>
 
             </div>
 

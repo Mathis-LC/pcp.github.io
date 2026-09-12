@@ -38,8 +38,8 @@
                             <div class="navbar-item has-dropdown">
                                 <a class="navbar-link has-text-weight-bold has-text-white dropdown-toggle">Configurations Apache</a>
                                     <div class="navbar-dropdown dropdown-menu">
-                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
-                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                        <a class="navbar-item" href="../apache/domaine_Labannu/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local/domaine_Local.html">Domaine Local</a>
                                     </div>
                             </div>
 
@@ -91,8 +91,7 @@
         </h1>
 
             <div class="content">
-
-                <p>On importe le modèle de vm webvislab </p>
+                <p>On importe le modèle de vm webvislab</p>
                 <p>On peut changer le nom de la machine</p>
                 <p><code>sudo nano /etc/hostname</code></p>
                 <p>Remplacer us2004 par webvislab</p>
@@ -108,7 +107,7 @@
                 <p>Configurer les règles du firewall</p>
                 <p><code>sudo ufw enable</code></p>
                 <p><code>sudo ufw app list</code></p>
-                <p><code>sudo ufw allow &quot;Apache Full&quot;</code></p>
+                <p><code>sudo ufw allow "Apache Full"</code></p>
                 <p><code>sudo ufw allow OpenSSH</code> </p>
                 <p><code>sudo ufw status</code></p>
                 <p>Puis on créer les dossiers en suivant le tableau</p>
@@ -117,74 +116,28 @@
                 <p><code>sudo mkdir /var/www/Applifrais/beta</code></p>
                 <p><code>cd /etc/apache2/sites-available/</code></p>
                 <p><code>sudo nano applifraisv2.conf</code></p>
+            </div>
 
-                <pre><code>
-                <span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
-                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> applifrais.webvislab.local
-
-                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
-                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/Applifrais/2.0/www
-                    <span class="hljs-attribute">DirectoryIndex</span> accueil.html index.html index.php
-
-                    <span class="hljs-comment"># Logs</span>
-                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
-                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
-
-                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
-                    <span class="hljs-section">&lt;Directory /var/www/Applifrais/2.0/www&gt;</span>
-                        <span class="hljs-comment"># Désactive:</span>
-                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
-                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
-                        <span class="hljs-comment">#   Indexes: l'affichage du contenu des répertoires</span>
-                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes -Indexes
-
-                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
-                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
-
-                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
-                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
-                    <span class="hljs-section">&lt;/Directory&gt;</span>
-                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
-                </code></pre>
+            <div class="content">
+                <p><img src="./images/image1.png" alt="image1" class="image-clickable"></p>
+            </div>
                 
+            <div class="content">
                 <p><code>sudo apache2ctl configtest</code></p>
                 <p><code>sudo a2ensite applifraisv2</code></p>
                 <p><code>sudo systemctl reload apache2.service</code></p>
                 <p><code>sudo a2dissite 000-default</code></p>
                 <p><code>sudo systemctl reload apache2.service</code></p>
-                <p><code>sudo a2enmod rewrite</code> </p>
+                <p><code>sudo a2enmod rewrite</code></p>
                 <p><code>sudo systemctl restart apache2.service</code></p>
                 <p><code>sudo nano applifraisbeta.conf</code></p>
+            </div>
 
-                <pre><code>
-                <span class="hljs-section">&lt;VirtualHost *:80&gt;</span>
-                    <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> beta.applifrais.webvislab.local
+            <div class="content">
+                <p><img src="./images/image2.png" alt="image2" class="image-clickable"></p>
+            </div>   
 
-                    <span class="hljs-attribute">ServerAdmin</span> webmaster@localhost
-                    <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/Applifrais/beta/www
-                    <span class="hljs-attribute">DirectoryIndex</span> accueil.html index.html index.php
-
-                    <span class="hljs-comment"># Logs</span>
-                    <span class="hljs-attribute">ErrorLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/error.log
-                    <span class="hljs-attribute">CustomLog</span> <span class="hljs-variable">${APACHE_LOG_DIR}</span>/access.log combined
-
-                    <span class="hljs-comment"># Bonne pratiques de sécurité</span>
-                    <span class="hljs-section">&lt;Directory /var/www/Applifrais/beta/www&gt;</span>
-                        <span class="hljs-comment"># Désactive:</span>
-                        <span class="hljs-comment">#   ExecCGI: l'exécution de scripts</span>
-                        <span class="hljs-comment">#   Includes: l'inclusion de fichiers</span>
-                        <span class="hljs-comment">#   Indexes: l'affichage du contenu des répertoires        </span>
-                        <span class="hljs-attribute"><span class="hljs-nomarkup">Options</span></span> -ExecCGI -Includes -Indexes
-
-                        <span class="hljs-comment"># Active les fichiers .htaccess</span>
-                        <span class="hljs-attribute">AllowOverride</span> <span class="hljs-literal">All</span> 
-
-                        <span class="hljs-comment"># Autorise l'accès au contenu</span>
-                        <span class="hljs-attribute">Require</span> <span class="hljs-literal">all</span> granted
-                    <span class="hljs-section">&lt;/Directory&gt;</span>
-                <span class="hljs-section">&lt;/VirtualHost&gt;</span>
-                </code></pre>                
-                
+            <div class="content">                
                 <p><code>sudo apache2ctl configtest</code></p>
                 <p><code>sudo a2ensite applifraisbeta</code></p>
                 <p><code>sudo systemctl reload apache2.service</code></p>
@@ -209,50 +162,86 @@
 
                 <p><strong>Copier les clés publiques des utilisateurs dans les fichiers</strong></p>
 
-                <pre><code>
-                sudo su etudiant1
-                ls -a 
-                mkdir .ssh 
-                cd .ssh
-                touch authorized_keys
-                echo ssh-ed25519 [clé_publique_ssh] etudiant1@[nom-pc] > authorized_keys
-                cat authorized_keys
-                exit
-                </code></pre>
+                <blockquote>
+                    <p>
+                        sudo su etudiant1
+                        <br>
+                        ls -a
+                        <br>
+                        mkdir .ssh
+                        <br>
+                        cd .ssh
+                        <br>
+                        touch authorized_keys
+                        <br>
+                        echo ssh-ed25519 [clé_publique_ssh] etudiant1@[nom-pc] > authorized_keys
+                        <br>
+                        cat authorized_keys
+                        <br>
+                        exit
+                    </p>
+                </blockquote>
+
+                <blockquote>
+                    <p>                
+                        sudo su etudiant2
+                        <br>
+                        ls -a
+                        <br>
+                        mkdir .ssh
+                        <br>
+                        cd .ssh
+                        <br>
+                        touch authorized_keys
+                        <br>
+                        echo ssh-ed25519 [clé_publique_ssh] etudiant2@[nom-pc] > authorized_keys
+                        <br>
+                        cat authorized_keys
+                        <br>
+                        exit
+                    </p>
+                </blockquote>
                 
-                <pre><code>
-                sudo su etudiant2
-                ls -a
-                mkdir .ssh
-                cd .ssh 
-                touch authorized_keys
-                echo ssh-ed25519 [clé_publique_ssh] etudiant2@[nom-pc] > authorized_keys
-                cat authorized_keys
-                exit
-                </code></pre>
+                <blockquote>
+                    <p>    
+                        sudo su etudiant3
+                        <br>
+                        ls -a
+                        <br>
+                        mkdir .ssh
+                        <br>
+                        cd .ssh 
+                        <br>
+                        touch authorized_keys
+                        <br>
+                        echo ssh-ed25519 [clé_publique_ssh] etudiant3@[nom-pc] > authorized_keys
+                        <br>
+                        cat authorized_keys
+                        <br>
+                        exit
+                    </p>
+                </blockquote>
                 
-                <pre><code>
-                sudo su etudiant3
-                ls -a
-                mkdir .ssh
-                cd .ssh 
-                touch authorized_keys
-                echo ssh-ed25519 [clé_publique_ssh] etudiant3@[nom-pc] > authorized_keys
-                cat authorized_keys
-                exit
-                </code></pre>
-                
-                <pre><code>
-                sudo su etudiant4
-                ls -a 
-                mkdir .ssh 
-                cd .ssh
-                touch authorized_keys
-                echo ssh-ed25519 [clé_publique_ssh] etudiant4@[nom-pc] > authorized_keys
-                cat authorized_keys
-                exit
-                </code></pre>
-                
+                <blockquote>
+                    <p>  
+                        sudo su etudiant4
+                        <br>
+                        ls -a 
+                        <br>
+                        mkdir .ssh 
+                        <br>
+                        cd .ssh
+                        <br>
+                        touch authorized_keys
+                        <br>
+                        echo ssh-ed25519 [clé_publique_ssh] etudiant4@[nom-pc] > authorized_keys
+                        <br>
+                        cat authorized_keys
+                        <br>
+                        exit
+                    </p>
+                </blockquote>
+                    
                 <p><strong>Ajouter les deux étudiants SISR au groupe sudo.</strong></p>
 
                 <p><code>sudo adduser etudiant1 sudo</code></p>
@@ -303,23 +292,16 @@
 
                 <p><code>git pull origin 2.0</code></p>
 
-                <p>Une fois la configuration terminée, on peut changer l’IP. </p>
+                <p>Une fois la configuration terminée, on peut changer l’IP.</p>
 
-                <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code> </p>
+                <p><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></p>
+            </div>
 
-                <pre><code>
-                <span class="hljs-attr">network:</span>
-                <span class="hljs-attr">  ethernets:</span>
-                <span class="hljs-attr">    enp3s0:</span>
-                <span class="hljs-attr">      dhcp4:</span> <span class="hljs-literal">false</span>
-                <span class="hljs-attr">      addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.20</span>/<span class="hljs-number">16</span>]
-                <span class="hljs-attr">      routes:</span>
-                <span class="hljs-attr">       - to:</span> default
-                <span class="hljs-attr">         via:</span> <span class="hljs-number">172.18</span><span class="hljs-number">.255</span><span class="hljs-number">.254</span>
-                <span class="hljs-attr">      nameservers:</span>
-                <span class="hljs-attr">        addresses:</span> [<span class="hljs-number">172.18</span><span class="hljs-number">.0</span><span class="hljs-number">.30</span>]
-                </code></pre>
+            <div class="content">
+                <p><img src="./images/image3.png" alt="image3" class="image-clickable"></p>
+            </div>
 
+            <div class="content">
                 <p><code>sudo netplan apply</code></p>
             </div>
 

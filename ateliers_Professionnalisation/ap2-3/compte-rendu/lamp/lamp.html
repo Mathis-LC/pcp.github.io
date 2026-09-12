@@ -312,19 +312,23 @@
 
                 <p><code>sudo mysql</code></p>
 
-                <p><code>CREATE DATABASE gsbfrais;</code></p>
-
-                <p><code>USE gsbfrais;</code></p>
-
-                <p><code>SOURCE ./gsbfrais_structure.sql;</code></p>
-
-                <p><code>SOURCE ./gsbfrais_data.sql;</code></p>
-
-                <p><code>CREATE USER 'usergsb'@'localhost' IDENTIFIED BY '<em>[password]</em>';</code></p>
-
-                <p><code>GRANT ALL ON gsbfrais.* TO 'usergsb'@'localhost';</code></p>
-
-                <p><code></code>EXIT</code></p>
+                <blockquote>
+                    <p>
+                        CREATE DATABASE gsbfrais;
+                        <br>
+                        USE gsbfrais;
+                        <br>
+                        SOURCE ./gsbfrais_structure.sql;
+                        <br>
+                        SOURCE ./gsbfrais_data.sql;
+                        <br>
+                        CREATE USER 'usergsb'@'localhost' IDENTIFIED BY '<em>[password]</em>';
+                        <br>
+                        GRANT ALL ON gsbfrais.* TO 'usergsb'@'localhost';
+                        <br>
+                        EXIT
+                    </p>
+                </blockquote>
             </div>
                 
             <div class="content">

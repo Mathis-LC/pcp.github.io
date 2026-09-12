@@ -37,8 +37,8 @@
                             <div class="navbar-item has-dropdown">
                                 <a class="navbar-link has-text-weight-bold has-text-white dropdown-toggle">Configurations Apache</a>
                                     <div class="navbar-dropdown dropdown-menu">
-                                        <a class="navbar-item" href="../apache/domaine_Labannu.html">Domaine Labannu</a>
-                                        <a class="navbar-item" href="../apache/domaine_Local.html">Domaine Local</a>
+                                        <a class="navbar-item" href="../apache/domaine_Labannu/domaine_Labannu.html">Domaine Labannu</a>
+                                        <a class="navbar-item" href="../apache/domaine_Local/domaine_Local.html">Domaine Local</a>
                                     </div>
                             </div>
 
@@ -93,16 +93,17 @@
 
                     <p><strong>Avant Modification</strong></p>
 
-                    <pre><code>
-                        RequestReadTimeout header=<span class="hljs-number">20</span><span class="hljs-number">-40</span>,minrate=<span class="hljs-number">500</span>
-                        RequestReadTimeout body=<span class="hljs-number">10</span>,minrate=<span class="hljs-number">500</span>
-                    </code></pre>
+                    <blockquote>
+                        <p>RequestReadTimeout header=20-40,minrate=500</p>
+                        <p>RequestReadTimeout body=10,minrate=500</p>
+                    </blockquote>
                     
                     <p><strong>Après Modification</strong></p>
 
-                    <pre><code>
-                        RequestReadTimeout header=<span class="hljs-number">20</span><span class="hljs-number">-40</span>,MinRate=<span class="hljs-number">500</span> body=<span class="hljs-number">20</span>,MinRate=<span class="hljs-number">500</span>
-                    </code></pre>
+                    <blockquote>
+                        <p>RequestReadTimeout header=20-40,MinRate=500</p>
+                        <p>RequestReadTimeout body=20,MinRate=500</p>
+                    </blockquote>
                     
                     <p><code>sudo systemctl restart apache2.service</code></p>
                 

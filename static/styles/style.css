@@ -90,3 +90,40 @@ body {
         opacity: 0.9;
     }
 }
+
+.cli-output {
+    padding: 0;
+    overflow: hidden;
+    background-color: #1e1e1e;
+}
+
+.cli-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background-color: var(--bulma-dark) !important;
+    color: var(--bulma-white) !important;
+    font-size: 0.8rem;
+}
+
+.cli-status {
+    width: 10px;
+    height: 10px;
+    background-color: var(--bulma-success) !important;
+    border-radius: 50%;
+}
+
+.cli-output pre {
+    margin: 0;
+    padding: 20px;
+    background-color: transparent;
+    color: var(--bulma-white) !important;
+    overflow-x: auto;
+}
+
+.cli-output code {
+    color: var(--bulma-white) !important;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.9rem;
+}

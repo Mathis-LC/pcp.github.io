@@ -54,215 +54,370 @@
                 </h1>
             </div>
 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TST-MP11
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+    <h1 class="title is-size-4 mb-2">
+        TST-MP11
+    </h1>
 
-                <!-- -->
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TST-MP21
-                </h1>              
-            </div>
+        <pre><code>mlorent@TST-MP11> show interfaces descriptions | match "up    up" | except "[0-9]\.[0-9]" | except "gr" | except "ae"
+ge-1/0/0        up    up   LBT link to TSTR2  (Gi0/0/1/2) - backbone
+ge-1/1/0        up    up   LBT link to TSTR1 (Gi0/0/1/2) - backbone</code></pre>
+    </div>
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TST-MP21
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TST-MP21> show interfaces descriptions | match "up    up" | except "[0-9]\.[0-9]" | except "gr" | except "ae" 
+ge-1/0/0        up    up   LBT link to TSTR1 (Gi0/0/1/18) - backbone
+ge-1/0/1        up    up   LBT link to TSTR2 (Gi0/0/1/18) - backbone</code></pre>
+    </div>
+
+</div> 
                 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTI2
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+    <h1 class="title is-size-4 mb-2">
+        TSTI2
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTI2#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description 
+Te1/1                          up             up       FAV1 link to TSTJ2 (ge-0/0/1) - backbone
+Gi6/1                          up             up       FAV1 Link To TSTR2 (Gi0/0/1/7) - IXIA
+Gi6/2                          up             up       FAV1 Link To TST-EVENG (eth1) - EVENG
+Gi6/3                          up             up       FAV1 Link To TST-IXVM1 (ens2f0) - IXIA</code></pre>
+    </div>
+
+</div> 
                 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTI3
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+    <h1 class="title is-size-4 mb-2">
+        TSTI3
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTI3#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description
+Gi1/0/1                        up             up       FAV1 Link to TST1CPU901 (enp94s0f1) - telegraf
+Gi1/0/2                        up             up       FAV1 Link To TST-EVENG (eth2) - EVENG
+Gi1/0/3                        up             up       TSTW3 vlan 999
+Gi1/0/4                        up             up       TSTW3 vlan 999 lien 2
+Gi1/0/5                        up             up       EVE-NG2 port eth1 vlan 500
+Gi1/0/7                        up             up       EVE-NG1 port eth2 vlan 500
+Gi1/0/9                        up             up       FAV1 Link to TST1CPU902 enp3s0f0  (telegraf)
+Gi1/0/11                       up             up       LACP1 vers tst1cpu901 eno3 vlan 500
+Gi1/0/12                       up             up       LACP1 vers tst1cpu901 eno4 vlan 500
+Gi1/0/13                       up             up       LACP2 vers tst1cpu902 P1 vlan 500
+Gi1/0/14                       up             up       LACP2 vers tst1cpu902 P5 vlan 500
+Gi1/1/1                        up             up       FAV1 link to TSTJ1 (ge-0/1/2) - backbone
+Gi1/1/2                        up             up       FAV1 link to TST-IXVM1(ens2f1) - IXIA
+Gi1/1/3                        up             up       FAV1 link to TSTR1 (Gi-0/0/1/7) - IXIA</code></pre>
+    </div>
+
+</div>
                 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTI4
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div>         
+    <h1 class="title is-size-4 mb-2">
+        TSTI4
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>ODOS CLI</span>
+        </div>
+
+        <pre><code>mlorent@TSTI4:~$ show interfaces description 
+  Interface    Oper    Admin         Alias  Description                                                                                           
+-----------  ------  -------  ------------  -------------------------------------------------------
+  Ethernet1      up       up      tenGigE1  FAV1 link to TSTJ1 (xe-1/1/1)  GPON-FAKE1234 - backbone</code></pre>
+    </div>
+
+</div>       
                 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTJ1
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div>   
+    <h1 class="title is-size-4 mb-2">
+        TSTJ1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TSTJ1> show interfaces descriptions | match "up    up" | except "[0-9]\.[0-9]" | except "gr" | except "ae"  
+ge-0/0/0        up    up   LBS link to TSTW1 (Gi1/0/1) - backbone
+ge-0/0/1        up    up   test MPeBGP vers CDE TSTJ2 LAS (ge-0/0/2)
+ge-0/0/2        up    up   test MPeBGP vers multi CDE TSTJSE1 LAS (ge-1/0/1)
+ge-0/1/0        up    up   LBS link to S0-TSTJ1 (gi0/0/0) - backbone
+ge-0/1/2        up    up   FAV0 link to TSTI3 (Gi1/1/1) - backbone
+ge-0/1/6        up    up   vers TSTJ2 ge-0/1/6
+ge-0/1/8        up    up   LBS link to TSTSRV4 (em5)- backbone;
+xe-0/2/0        up    up   LBT1 link to TSTR1 (TenGigE0/0/0/0) - backbone
+xe-0/2/1        up    up   FAV0 link to TSTI4 (Te0) - backbone
+xe-0/3/0        up    up   LBT1 link to TSTR2 (TenGigE0/0/0/0) - backbone
+xe-0/3/1        up    up   LBT1 link to TSTR2 (TenGigE0/0/0/1) - backbone
+xe-3/0/0        up    up   FAV Link To TSTW2 (xe-0/0/47) - backbone
+xe-3/1/0        up    up   LBS link to TST1CPU0901 (ens1f0) - backbone</code></pre>
+    </div>
+
+</div>  
                 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTJ2
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div>                 
+    <h1 class="title is-size-4 mb-2">
+        TSTJ2
+    </h1>
 
-                <!-- -->
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTJ2
-                </h1>              
-            </div>
+        <pre><code>mlorent@TSTJ2> show interfaces descriptions | match "up    up" | except "[0-9]\.[0-9]" | except "gr" | except "ae" 
+ge-0/0/1        up    up   FAV Link To TSTI2 (Te1/1) - backbone
+ge-0/0/2        up    up   test LAS pour MPeBGP (CDE) vers ASBR TSTJ1 ge-0/0/1 LAS
+ge-0/0/4        up    up   LBT2 link to TSTS1 (GigabitEthernet0/0/0) - backbone - do not delete cause used for OWG TSTS1 cf LAS
+ge-0/1/0        up    up   LBT link to TSTR2 (Gi0/0/1/1) - backbone
+xe-0/2/1        up    up   LBT link to TST1CPU0901 (ens1f1) - backbone
+et-1/0/0        up    up   LBT1 link to TSTR1 (HundredGigE0/1/1/0) - backbone
+et-1/1/0        up    up   LBT1 link to TSTR2 (HundredGigE0/1/0/1) - backbone
+et-1/2/0        up    up   FAV0 link to TSTI6 (P51) - backbone</code></pre>
+    </div>
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+</div>                 
 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTJSE1
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+    <h1 class="title is-size-4 mb-2">
+        TSTJSE1
+    </h1>
 
-                <!-- -->
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTJSE2
-                </h1>              
-            </div>
+        <pre><code>mlorent@TSTJSE1> show interfaces descriptions | match "up    up" | except "[0-9]\.[0-9]" | except "gr" | except "ae" 
+ge-1/0/0        up    up   LBT1 link to TSTR1 (Gi0/0/1/19) - backbone
+ge-1/0/1        up    up   test MPeBGP (multi CDE) vers ASBR TSTJ1 ge-0/0/2 LAS
+xe-1/2/0        up    up   BBT Link to TSTJSE2(xe-1/2/0) - backbone</code></pre>
+    </div>
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+</div>
 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTR1
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+    <h1 class="title is-size-4 mb-2">
+        TSTJSE2
+    </h1>
 
-                <!-- -->
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTR2
-                </h1>              
-            </div>
+        <pre><code>mlorent@TSTJSE2> show interfaces descriptions | match "up    up" | except "[0-9]\.[0-9]" | except "gr" | except "ae" 
+ge-1/0/0        up    up   LBT1 Link to TSTR2 (Gi0/0/1/6) - backbone
+xe-1/2/0        up    up   BBT Link to TSTJSE1(xe-1/2/0) - backbone</code></pre>
+    </div>
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+</div>
 
-                <!-- -->
+<!-- -->
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTS1
-                </h1>              
-            </div>
+<div class="container mt-6 mb-5">
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+    <h1 class="title is-size-4 mb-2">
+        TSTR1
+    </h1>
 
-                <!-- -->
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTW1
-                </h1>              
-            </div>
+        <pre><code>RP/0/RSP0/CPU0:TSTR1#sh int description | exclude "Lo|[0-9]\\.[0-9]"
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+Te0/0/0/0          up          up          LBT0 link to TSTJ1 (xe-0/2/0) - backbone
+Te0/0/0/2          up          up          LBT link to TSTR2 (Te0/0/0/2) - backbone
+Te0/0/0/3          up          up          LBT link to TSTR2 (Te0/0/0/3) - backbone
+Gi0/0/1/2          up          up          LBT0 link to TST-MP11(ge-1/1/0) - backbone
+Gi0/0/1/3          up          up          "LBT0 link to TST1CPU900 (numa0 - eno2) - backbone"
+Gi0/0/1/4          up          up          LBT0 Link To TST1CPU900 (numa1 - ens3f1) - backbone
+Gi0/0/1/7          up          up          LBT0 link to TSTI3 (G3)
+Gi0/0/1/18         up          up          LBT0 link to TST-MP21(ge-1/0/0) - backbone
+Gi0/0/1/19         up          up          LBT0 link to TSTJSE1 (ae100) - backbone
+Hu0/1/1/0          up          up          LBT0 link to TSTJ2 (et-1/0/0) - backbone</code></pre>
+    </div>
 
-                <!-- -->
+</div>
 
-            <div class="container mt-6 mb-5">
-                <h1 class="title has-text-left is-size-4">
-                    TSTW3
-                </h1>              
-            </div>
+<!-- -->
 
-                <div class="container mt-5 mb-6">
-                    <div class="notification is-dark has-text-white">                         
-                        <a class="has-text-success" href="" target="_blank" rel="noopener noreferrer">Lien vers la production</a>
-                    </div>
-                </div> 
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTR2
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>RP/0/RSP1/CPU0:TSTR2#sh int description | exclude "Lo|[0-9]\\.[0-9]"
+
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+Te0/0/0/0          up          up          LBT0 link to TSTJ1 (xe-0/3/0) - backbone
+Te0/0/0/1          up          up          LBT0 link to TSTJ1 (xe-0/3/1) - backbone
+Te0/0/0/2          up          up          LBT link to TSTR1 (TenGigE0/0/0/2) - backbone
+Te0/0/0/3          up          up          LBT link to TSTR1 (TenGigE0/0/0/3) - backbone
+Te0/0/0/4          up          up          LBT0 link to TST1CPU900 (numa0 - eno1) - backbone
+Te0/0/0/5          up          up          LBT0 Link To TST1CPU900 (numa1 - ens3f0) - backbone
+Te0/0/0/8          up          up          LBT0 link to HSPE (interface) - backbone
+Gi0/0/1/1          up          up          LBT0 link to TSTJ2 (ge-0/1/0) - backbone
+Gi0/0/1/2          up          up          LBT0 link to TST-MP11(ge-1/0/0) - backbone
+Gi0/0/1/6          up          up          LBT0 link to TSTJSE2 (ge-1/0/0)- backbone
+Gi0/0/1/7          up          up          LBT0 link to TSTI2 (Gi6/1) - IXIA
+Gi0/0/1/18         up          up          LBT0 link to TST-MP21(ge-1/0/1) - backbone
+Hu0/1/0/1          up          up          LBT0 link to TSTJ2 (et-1/1/0) - backbone</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTS1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTS1#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description   
+Gi0/0/0                        up             up       LBT3 link to TSTJ2 (ge-0/1/4) - backbone - offre OWG</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTW1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTW1#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description
+Fa1/0/1                        up             up       LBS Link To TST1CPU900 (eno3) - backbone
+Fa1/0/10                       up             up       LBS Link To TSTAVF1 (mngt0) - backbone
+Fa1/0/11                       up             up       TSTI5 MGT
+Fa1/0/12                       up             up       Link To S1-TSTJ1(GE0/0) - shadow
+Fa1/0/14                       up             up       LBS Link To TSTSRV4 (eth0) - backbone
+Fa1/0/15                       up             up       LBS Link To TSTSRV4 (eth1) - backbone
+Fa1/0/18                       up             up       Link to TSTSRV4 (em2)
+Fa1/0/22                       up             up       Link to TSTSRV4 (em3) - Serveur
+Fa1/0/23                       up             up       "EVENG2 acces licence check"
+Gi1/0/1                        up             up       FAV1 link to TSTJ1 (ge-0/0/0) - backbone</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTW3
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTW3#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description  
+Gi1/0/1                        up             up       "LINK TO TSTI3 port 3"
+Gi1/0/2                        up             up       "LINK TO TSTI3 port 4"
+Ap1/0/1                        up             up</code></pre>
+    </div>
+
+</div>
 
         </main>
 

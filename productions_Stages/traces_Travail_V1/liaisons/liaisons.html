@@ -54,6 +54,636 @@
                 </h1>
             </div>
 
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TST-MP11
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TST-MP11> show interfaces descriptions | except "[0-9]\.[0-9]" 
+Interface       Admin Link Description
+ge-1/0/0        up    up   LBT link to TSTR2  (Gi0/0/1/2) - backbone
+ge-1/1/0        up    up   LBT link to TSTR1 (Gi0/0/1/2) - backbone</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TST-MP21
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TST-MP21> show interfaces descriptions | except "[0-9]\.[0-9]"    
+Interface       Admin Link Description
+ge-1/0/0        up    up   LBT link to TSTR1 (Gi0/0/1/18) - backbone
+ge-1/0/1        up    up   LBT link to TSTR2 (Gi0/0/1/18) - backbone
+xe-1/2/0        up    down LBT1 link to TSTR2 (Te0/2/0/0) - backbone</code></pre>
+    </div>
+
+</div>
+                
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTI2
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTI2#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description
+Fa1                            down           down     
+Te1/1                          up             up       FAV1 link to TSTJ2 (ge-0/0/1) - backbone
+Te1/2                          admin down     down     
+Te1/3                          admin down     down     
+Te1/4                          admin down     down     
+Fa2/1                          admin down     down     
+Fa2/2                          admin down     down     
+Fa2/3                          admin down     down     
+Fa2/4                          admin down     down     
+Fa2/5                          admin down     down     
+Fa2/6                          admin down     down     
+Fa2/7                          admin down     down     
+Fa2/8                          admin down     down     
+Fa2/9                          admin down     down     
+Fa2/10                         admin down     down     
+Fa2/11                         admin down     down     
+Fa2/12                         admin down     down     
+Fa2/13                         admin down     down     
+Fa2/14                         admin down     down     
+Fa2/15                         admin down     down     
+Fa2/16                         admin down     down     
+Fa2/17                         admin down     down     
+Fa2/18                         admin down     down     
+Fa2/19                         admin down     down     
+Fa2/20                         admin down     down     
+Fa2/21                         admin down     down     
+Fa2/22                         admin down     down     
+Fa2/23                         admin down     down     
+Fa2/24                         admin down     down     
+Fa2/25                         admin down     down     
+Fa2/26                         admin down     down     
+Fa2/27                         admin down     down     
+Fa2/28                         admin down     down     
+Fa2/29                         admin down     down     
+Fa2/30                         admin down     down     
+Fa2/31                         admin down     down     
+Fa2/32                         admin down     down     
+Fa2/33                         admin down     down     
+Fa2/34                         admin down     down     
+Fa2/35                         admin down     down     
+Fa2/36                         admin down     down     
+Fa2/37                         admin down     down     
+Fa2/38                         admin down     down     
+Fa2/39                         admin down     down     
+Fa2/40                         admin down     down     
+Fa2/41                         admin down     down     
+Fa2/42                         admin down     down     
+Fa2/43                         admin down     down     
+Fa2/44                         admin down     down     
+Fa2/45                         admin down     down     
+Fa2/46                         admin down     down     
+Fa2/47                         admin down     down     
+Fa2/48                         admin down     down     
+Gi4/1                          admin down     down     
+Gi4/2                          admin down     down     
+Gi4/3                          admin down     down     
+Gi4/4                          admin down     down     
+Gi4/5                          admin down     down     
+Gi4/6                          admin down     down     
+Gi4/7                          admin down     down     
+Gi4/8                          admin down     down     
+Gi4/9                          admin down     down     
+Gi4/10                         admin down     down     
+Gi4/11                         admin down     down     
+Gi4/12                         admin down     down     
+Gi4/13                         admin down     down     
+Gi4/14                         admin down     down     
+Gi4/15                         admin down     down     
+Gi4/16                         admin down     down     
+Gi4/17                         admin down     down     
+Gi4/18                         admin down     down     
+Gi4/19                         admin down     down     
+Gi4/20                         admin down     down     
+Gi4/21                         admin down     down     
+Gi4/22                         admin down     down     
+Gi4/23                         admin down     down     
+Gi4/24                         admin down     down     
+Gi6/1                          up             up       FAV1 Link To TSTR2(Gi0/0/1/7) - IXIA
+Gi6/2                          up             up       FAV1 Link To TST-EVENG (eth1) - EVENG
+Gi6/3                          up             up       FAV1 Link To TST-IXVM1 (ens2f0) - IXIA
+Gi6/4                          admin down     down     
+Gi6/5                          admin down     down     
+Gi6/6                          admin down     down     
+Gi6/7                          admin down     down     
+Gi6/8                          admin down     down     
+Gi6/9                          admin down     down     
+Gi6/10                         admin down     down     
+Gi6/11                         admin down     down     
+Gi6/12                         admin down     down     
+Gi6/13                         admin down     down     
+Gi6/14                         admin down     down     
+Gi6/15                         admin down     down     
+Gi6/16                         admin down     down     
+Gi6/17                         admin down     down     
+Gi6/18                         admin down     down     
+Gi6/19                         admin down     down     
+Gi6/20                         admin down     down     
+Gi6/21                         admin down     down     
+Gi6/22                         admin down     down     
+Gi6/23                         admin down     down     
+Gi6/24                         admin down     down     
+Gi6/25                         admin down     down     
+Gi6/26                         admin down     down     
+Gi6/27                         admin down     down     
+Gi6/28                         admin down     down     
+Gi6/29                         admin down     down     
+Gi6/30                         admin down     down     
+Gi6/31                         admin down     down     
+Gi6/32                         admin down     down     
+Gi6/33                         admin down     down     
+Gi6/34                         admin down     down     
+Gi6/35                         admin down     down     
+Gi6/36                         admin down     down     
+Gi6/37                         admin down     down     
+Gi6/38                         admin down     down     
+Gi6/39                         admin down     down     
+Gi6/40                         admin down     down     
+Gi6/41                         admin down     down     
+Gi6/42                         admin down     down     
+Gi6/43                         admin down     down     
+Gi6/44                         admin down     down     
+Gi6/45                         admin down     down     
+Gi6/46                         admin down     down     
+Gi6/47                         admin down     down     
+Gi6/48                         admin down     down</code></pre>
+    </div>
+
+</div>
+                
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTI3
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTI3#sh int description | exclude "[0-9]\\.[0-9]"   
+Interface                      Status         Protocol Description
+Gi0/0                          admin down     down     
+Gi1/0/1                        up             up       FAV1 Link to TST1CPU901 (enp94s0f1) - telegraf
+Gi1/0/2                        up             up       FAV1 Link To TST-EVENG (eth2) - EVENG
+Gi1/0/3                        up             up       TSTW3 vlan 999
+Gi1/0/4                        up             up       TSTW3 vlan 999 lien 2 
+Gi1/0/5                        up             up       EVE-NG2 port eth1 vlan 500
+Gi1/0/6                        down           down     
+Gi1/0/7                        up             up       EVE-NG1 port eth2 vlan 500
+Gi1/0/8                        down           down     
+Gi1/0/9                        up             up       FAV1 Link to TST1CPU902 enp3s0f0  (telegraf)
+Gi1/0/10                       down           down     
+Gi1/0/11                       up             up       LACP1 vers tst1cpu901 eno3 vlan 500
+Gi1/0/12                       up             up       LACP1 vers tst1cpu901 eno4 vlan 500
+Gi1/0/13                       up             up       LACP2 vers tst1cpu902 P1 vlan 500
+Gi1/0/14                       up             up       LACP2 vers tst1cpu902 P5 vlan 500
+Gi1/0/15                       down           down     
+Gi1/0/16                       down           down     
+Gi1/0/17                       down           down     
+Gi1/0/18                       down           down     
+Gi1/0/19                       down           down     
+Gi1/0/20                       down           down     
+Gi1/0/21                       down           down     
+Gi1/0/22                       down           down     
+Gi1/0/23                       down           down     
+Gi1/0/24                       down           down     
+Gi1/1/1                        up             up       FAV1 link to TSTJ1 (ge-0/1/2) - backbone
+Gi1/1/2                        up             up       FAV1 link to TST-IXVM1(ens2f1) - IXIA
+Gi1/1/3                        up             up       FAV1 link to TSTR1 (Gi-0/0/1/7) - IXIA
+Gi1/1/4                        down           down</code></pre>
+    </div>
+
+</div> 
+                
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTJ1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TSTJ1> show interfaces descriptions | except "[0-9]\.[0-9]" 
+Interface       Admin Link Description
+ge-0/0/0        up    up   LBS link to TSTW1 (Gi1/0/1) - backbone
+gr-0/0/0        up    up   TEST TO TSTR2
+ge-0/0/1        up    up   test MPeBGP vers CDE TSTJ2 LAS (ge-0/0/2)
+ge-0/0/2        up    up   test MPeBGP vers multi CDE TSTJSE1 LAS (ge-1/0/1)
+ge-0/1/0        up    up   LBS link to S0-TSTJ1 (gi0/0/0) - backbone
+ge-0/1/1        up    up   LBS link to EAS_MRV_RAEI_001 - backbone
+ge-0/1/2        up    up   FAV0 link to TSTI3 (Gi1/1/1) - backbone
+ge-0/1/6        up    up   vers TSTJ2 ge-0/1/6
+ge-0/1/8        up    up   LBS link to TSTSRV4 (em5)- backbone;
+xe-0/2/0        up    up   LBT1 link to TSTR1 (TenGigE0/0/0/0) - backbone
+xe-0/2/1        up    up   FAV0 link to TSTI4 (Te0) - backbone
+xe-0/3/0        up    up   LBT1 link to TSTR2 (TenGigE0/0/0/0) - backbone
+xe-0/3/1        up    up   LBT1 link to TSTR2 (TenGigE0/0/0/1) - backbone
+xe-3/0/0        up    up   FAV Link To TSTW2 (xe-0/0/47) - backbone
+xe-3/0/1        up    down
+xe-3/1/0        up    up   LBS link to TST1CPU0901 (ens1f0) - backbone
+ae1             up    up   LBT1 link to TSTR1 (Bundle-Ether1) - backbone
+ae2             up    up   LBT1 link to TSTR2 (Bundle-Ether2) - backbone
+ae19            up    up   LAG link to TSTI4 (Po0) - backbone
+ae21            up    up   test MP eBGP vers CDE TSTJ2 LAS (ae21)
+ae23            up    up   test MPeBGP vers multi CDE TSTJSE1 LAS (ae23)</code></pre>
+    </div>
+
+</div>
+                
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTJ2
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TSTJ2> show interfaces descriptions | except "lt|[0-9]\.[0-9]"    
+Interface       Admin Link Description
+ge-0/0/1        up    up   FAV Link To TSTI2 (Te1/1) - backbone
+ge-0/0/2        up    up   test LAS pour MPeBGP (CDE) vers ASBR TSTJ1 ge-0/0/1 LAS
+ge-0/0/3        up    down TEST
+ge-0/0/4        up    up   LBT2 link to TSTS1 (GigabitEthernet0/0/0) - backbone - do not delete cause used for OWG TSTS1 cf LAS
+ge-0/1/0        up    up   LBT link to TSTR2 (Gi0/0/1/1) - backbone
+ge-0/1/1        up    up   link to EAS_MRV_RAEI_002
+ge-0/1/9        up    down link to TST_RAD1
+xe-0/2/0        down  down LBT1 link to TSTR2 (TenGe0/0/0/6) - backbone
+xe-0/2/1        up    up   LBT link to TST1CPU0901 (ens1f1) - backbone
+xe-0/3/0        up    down LBT2 link to TSTS1 (TenGigabitEthernet0/0/0) - backbone
+xe-0/3/1        down  down LBT1 link to TSTR1 (Ten0/0/0/1) - backbone
+et-1/0/0        up    up   LBT1 link to TSTR1 (HundredGigE0/1/1/0) - backbone
+et-1/1/0        up    up   LBT1 link to TSTR2 (HundredGigE0/1/0/1) - backbone
+et-1/2/0        up    up   FAV0 link to TSTI6 (P51) - backbone
+ae10            up    up   LBT1 link to TSTR1 (Bundle-Ether10) - backbone
+ae20            up    down LBT1 link to TSTR2 (Bundle-Ether20) - backbone
+ae21            up    up   test MPebgp CDE vers ASBR TSTJ1 ae21 LAS
+ae30            up    up   LBT1 link to TSTR2 (Bundle-Ether30) - backbone</code></pre>
+    </div>
+
+</div> 
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTJSE1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TSTJSE1> show interfaces descriptions | except "[0-9]\.[0-9]"    
+Interface       Admin Link Description
+ge-1/0/0        up    up   LBT1 link to TSTR1 (Gi0/0/1/19) - backbone
+ge-1/0/1        up    up   test MPeBGP (multi CDE) vers ASBR TSTJ1 ge-0/0/2 LAS
+xe-1/2/0        up    up   BBT Link to TSTJSE2(xe-1/2/0) - backbone
+ae23            up    up   test MPebgp multi CDE vers ASBR TSTJ1 ae23 LAS
+ae100           up    up   LBT1 link to TSTR1 (BE100) - backbone
+ae101           up    up   BBT link to TSTJSE2 (ae101) - backbone</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTJSE2
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Juniper CLI</span>
+        </div>
+
+        <pre><code>mlorent@TSTJSE2> show interfaces descriptions | except "[0-9]\.[0-9]"    
+Interface       Admin Link Description
+ge-1/0/0        up    up   LBT1 Link to TSTR2 (Gi0/0/1/6) - backbone
+ge-1/1/9        up    down LBT1 Link to TSTR1 Gi0/0/11
+xe-1/2/0        up    up   BBT Link to TSTJSE1(xe-1/2/0) - backbone
+ae100           up    up   LBT1 link to TSTR2 (Bundle-Ether100) - backbone
+ae101           up    up   BBT link to TSTJSE1 (ae101) - backbone</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTR1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>RP/0/RSP0/CPU0:TSTR1#sh int description | exclude "Lo|[0-9]\\.[0-9]"   
+
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BE1                up          up          LBT0 link to TSTJ1 (ae1) - backbone
+BE3                up          up          LBT link to TSTR2 (BE3) - backbone
+BE10               up          up          LBT0 link to TSTJ2 (ae10) - backbone
+BE100              up          up          LBT0 link to TSTJSE1 (ae100) - backbone
+BE200              down        down        PGW link to NCIDF303 () - en cours de PROD
+Nu0                up          up          
+Mg0/RSP0/CPU0/0    admin-down  admin-down  
+Mg0/RSP1/CPU0/0    admin-down  admin-down  
+Te0/0/0/0          up          up          LBT0 link to TSTJ1 (xe-0/2/0) - backbone
+Te0/0/0/1          down        down        LBT0 link to TSTJ2 (xe-0/3/1) - backbone
+Te0/0/0/2          up          up          LBT link to TSTR2 (Te0/0/0/2) - backbone
+Te0/0/0/3          up          up          LBT link to TSTR2 (Te0/0/0/3) - backbone
+Te0/0/0/4          admin-down  admin-down  
+Te0/0/0/5          admin-down  admin-down  
+Te0/0/0/6          admin-down  admin-down  
+Te0/0/0/7          admin-down  admin-down  
+Gi0/0/1/0          admin-down  admin-down  
+Gi0/0/1/1          admin-down  admin-down  
+Gi0/0/1/2          up          up          LBT0 link to TST-MP11(ge-1/1/0) - backbone
+Gi0/0/1/3          up          up          "LBT0 link to TST1CPU900 (numa0 - eno2) - backbone"
+Gi0/0/1/4          up          up          LBT0 Link To TST1CPU900 (numa1 - ens3f1) - backbone
+Gi0/0/1/5          down        down        LBT0 link to TSTJL1 (ge-1/0/0) - backbone
+Gi0/0/1/6          down        down        
+Gi0/0/1/7          up          up          LBT0 link to TSTI3 (G3)
+Gi0/0/1/8          admin-down  admin-down  
+Gi0/0/1/9          down        down        LBT0 link to TSTI1 (Gi1/15) - backbone
+Gi0/0/1/10         admin-down  admin-down  
+Gi0/0/1/11         down        down        LBT0 Link to TST-IG1 (ge-1/1/9) - backbone
+Gi0/0/1/12         admin-down  admin-down  
+Gi0/0/1/13         admin-down  admin-down  
+Gi0/0/1/14         admin-down  admin-down  
+Gi0/0/1/15         admin-down  admin-down  
+Gi0/0/1/16         admin-down  admin-down  
+Gi0/0/1/17         admin-down  admin-down  
+Gi0/0/1/18         up          up          LBT0 link to TST-MP21(ge-1/0/0) - backbone
+Gi0/0/1/19         up          up          LBT0 link to TSTJSE1 (ae100) - backbone
+Hu0/1/1/0          up          up          LBT0 link to TSTJ2 (et-1/0/0) - backbone
+Hu0/1/1/1          admin-down  admin-down</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTR2
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>RP/0/RSP1/CPU0:TSTR2#sh int description | exclude "Lo|[0-9]\\.[0-9]"
+
+Interface          Status      Protocol    Description
+--------------------------------------------------------------------------------
+BE2                up          up          LBT0 link to TSTJ1 (ae2) - backbone
+BE3                up          up          LBT link to TSTR1 (Bundle-Ether3) - backbone
+BE20               down        down        LBT0 link to TSTJ2 (ae20) - backbone
+BE30               up          up          LBT0 link to TSTJ2 (ae30) - backbone
+BE100              up          up          LBT0 link to TSTJSE2 (ae100) - backbone
+Nu0                up          up          
+ti0                up          up          GRE vers TSTJ1
+Mg0/RSP0/CPU0/0    admin-down  admin-down  
+Mg0/RSP1/CPU0/0    admin-down  admin-down  
+Te0/0/0/0          up          up          LBT0 link to TSTJ1 (xe-0/3/0) - backbone
+Te0/0/0/1          up          up          LBT0 link to TSTJ1 (xe-0/3/1) - backbone
+Te0/0/0/2          up          up          LBT link to TSTR1 (TenGigE0/0/0/2) - backbone
+Te0/0/0/3          up          up          LBT link to TSTR1 (TenGigE0/0/0/3) - backbone
+Te0/0/0/4          up          up          LBT0 link to TST1CPU900 (numa0 - eno1) - backbone
+Te0/0/0/5          up          up          LBT0 Link To TST1CPU900 (numa1 - ens3f0) - backbone
+Te0/0/0/6          down        down        LBT0 link to TSTJ2 (xe-0/2/0) - backbone
+Te0/0/0/7          admin-down  admin-down  
+Te0/0/0/8          up          up          LBT0 link to HSPE (interface) - backbone
+Te0/0/0/9          admin-down  admin-down  
+Te0/0/0/10         admin-down  admin-down  
+Te0/0/0/11         admin-down  admin-down  
+Te0/0/0/12         admin-down  admin-down  
+Te0/0/0/13         admin-down  admin-down  
+Te0/0/0/14         admin-down  admin-down  
+Te0/0/0/15         admin-down  admin-down  
+Te0/0/0/16         admin-down  admin-down  
+Te0/0/0/17         admin-down  admin-down  
+Te0/0/0/18         admin-down  admin-down  
+Te0/0/0/19         admin-down  admin-down  
+Gi0/0/1/0          admin-down  admin-down  
+Gi0/0/1/1          up          up          LBT0 link to TSTJ2 (ge-0/1/0) - backbone
+Gi0/0/1/2          up          up          LBT0 link to TST-MP11(ge-1/0/0) - backbone
+Gi0/0/1/3          down        down        
+Gi0/0/1/4          admin-down  admin-down  
+Gi0/0/1/5          admin-down  admin-down  
+Gi0/0/1/6          up          up          LBT0 link to TSTJSE2 (ge-1/0/0)- backbone
+Gi0/0/1/7          up          up          LBT0 link to TSTI2 (Gi6/1) - IXIA
+Gi0/0/1/8          down        down        LBT0 link to RR Juniper (test) - backbone
+Gi0/0/1/9          admin-down  admin-down  
+Gi0/0/1/10         admin-down  admin-down  
+Gi0/0/1/11         admin-down  admin-down  
+Gi0/0/1/12         admin-down  admin-down  
+Gi0/0/1/13         admin-down  admin-down  
+Gi0/0/1/14         admin-down  admin-down  
+Gi0/0/1/15         admin-down  admin-down  
+Gi0/0/1/16         admin-down  admin-down  
+Gi0/0/1/17         admin-down  admin-down  
+Gi0/0/1/18         up          up          LBT0 link to TST-MP21(ge-1/0/1) - backbone
+Gi0/0/1/19         admin-down  admin-down  
+Hu0/1/0/0          down        down        
+Hu0/1/0/1          up          up          LBT0 link to TSTJ2 (et-1/1/0) - backbone
+Te0/1/1/0          admin-down  admin-down  
+Te0/1/1/1          admin-down  admin-down  
+Te0/1/1/2          admin-down  admin-down  
+Te0/1/1/3          admin-down  admin-down</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTS1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTS1#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description
+Te0/0/0                        admin down     down     
+Te0/0/1                        admin down     down     
+Gi0/0/0                        up             up       LBT3 link to TSTJ2 (ge-0/1/4) - backbone - offre OWG
+Gi0/0/1                        admin down     down     
+Gi0/0/2                        admin down     down     
+Gi0/0/3                        admin down     down     
+Gi0/0/4                        admin down     down     
+Gi0/0/5                        admin down     down     
+Gi0                            admin down     down</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTW1
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTW1#sh int description | exclude "[0-9]\\.[0-9]"   
+Interface                      Status         Protocol Description
+Fa1/0/1                        up             up       LBS Link To TST1CPU900 (eno3) - backbone
+Fa1/0/2                        down           down     
+Fa1/0/3                        admin down     down     TSTI6 MGT
+Fa1/0/4                        down           down     TSTI4 MGT
+Fa1/0/5                        down           down     
+Fa1/0/6                        admin down     down     
+Fa1/0/7                        admin down     down     
+Fa1/0/8                        down           down     
+Fa1/0/9                        down           down     
+Fa1/0/10                       up             up       LBS Link To TSTAVF1 (mngt0) - backbone
+Fa1/0/11                       up             up       TSTI5 MGT
+Fa1/0/12                       up             up       Link To S1-TSTJ1(GE0/0) - shadow
+Fa1/0/13                       down           down     Link to TST-SRVx Internet_access - Serveur
+Fa1/0/14                       up             up       LBS Link To TSTSRV4 (eth0) - backbone
+Fa1/0/15                       up             up       LBS Link To TSTSRV4 (eth1) - backbone
+Fa1/0/17                       down           down     Link to TST1CPU901
+Fa1/0/18                       up             up       Link to TSTSRV4 (em2) 
+Fa1/0/19                       admin down     down     
+Fa1/0/20                       down           down     
+Fa1/0/21                       admin down     down     Link to TST1CPU901 (ilo) - Serveur
+Fa1/0/22                       up             up       Link to TSTSRV4 (em3) - Serveur
+Fa1/0/23                       up             up       "EVENG2 acces licence check"
+Fa1/0/24                       down           down     Link to TSTW3 Gi1/0/1
+Gi1/0/1                        up             up       FAV1 link to TSTJ1 (ge-0/0/0) - backbone
+Gi1/0/2                        down           down     
+Gi1/1/2                        down           down</code></pre>
+    </div>
+
+</div>
+
+<!-- -->
+
+<div class="container mt-6 mb-5">
+
+    <h1 class="title is-size-4 mb-2">
+        TSTW3
+    </h1>
+
+    <div class="notification is-dark cli-output">
+        <div class="cli-header">
+            <span class="cli-status"></span>
+            <span>Cisco CLI</span>
+        </div>
+
+        <pre><code>TSTW3#sh int description | exclude "[0-9]\\.[0-9]"
+Interface                      Status         Protocol Description
+Gi0/0                          admin down     down     
+Gi1/0/1                        up             up       "LINK TO TSTI3 port 3"
+Gi1/0/2                        up             up       "LINK TO TSTI3 port 4"
+Gi1/0/3                        down           down     
+Gi1/0/4                        down           down     
+Gi1/0/5                        down           down     
+Gi1/0/6                        down           down     
+Gi1/0/7                        down           down     
+Gi1/0/8                        down           down     
+Gi1/0/9                        down           down     
+Gi1/0/10                       down           down     
+Gi1/0/11                       down           down     
+Gi1/0/12                       down           down     
+Gi1/0/13                       down           down     
+Gi1/0/14                       down           down     
+Gi1/0/15                       down           down     
+Gi1/0/16                       down           down     
+Gi1/0/17                       down           down     
+Gi1/0/18                       down           down     
+Gi1/0/19                       down           down     
+Gi1/0/20                       down           down     
+Gi1/0/21                       down           down     
+Gi1/0/22                       down           down     
+Gi1/0/23                       down           down     
+Gi1/0/24                       down           down     
+Te1/1/1                        down           down     
+Te1/1/2                        down           down     
+Te1/1/3                        down           down     
+Te1/1/4                        down           down     
+Ap1/0/1                        up             up</code></pre>
+    </div>
+
+</div>
         </main>
 
         <footer class="footer has-background-dark">

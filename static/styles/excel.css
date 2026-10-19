@@ -157,8 +157,9 @@ h1 {
   font-weight: 400;
 }
 
-.excel-table tr:first-child td,
-.excel-table tr:first-child th {
+/* Mise en évidence des deux premières lignes */
+.excel-table tr:nth-child(-n+2) td,
+.excel-table tr:nth-child(-n+2) th {
   background: var(--green-light);
   font-weight: 700;
   color: #204d34;

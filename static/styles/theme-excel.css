@@ -119,8 +119,8 @@ body {
   color: var(--text);
 }
 
-.excel-table tr:first-child td,
-.excel-table tr:first-child th {
+.excel-table tr:nth-child(-n+2) td,
+.excel-table tr:nth-child(-n+2) th {
   background: var(--green-light);
   color: var(--table-header-text);
 }

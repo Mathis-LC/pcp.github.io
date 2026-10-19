@@ -1,0 +1,210 @@
+:root {
+  color-scheme: light;
+
+  --green: #217346;
+  --green-light: #e2f0e8;
+  --border: #d9e0dc;
+  --text: #24332b;
+  --muted: #6c7a72;
+  --background: #f3f6f4;
+
+  --surface: #ffffff;
+  --surface-secondary: #f7f9f7;
+  --surface-hover: #edf3ef;
+
+  --table-border: #e1e7e3;
+  --table-hover: #f3f9f5;
+  --table-header-text: #204d34;
+
+  --button-text: #ffffff;
+  --error: #a52222;
+  --shadow: rgb(25 55 35 / 5%);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --green: #4caf78;
+  --green-light: #263e31;
+  --border: #38453d;
+  --text: #e2eae5;
+  --muted: #a0afa5;
+  --background: #171c19;
+
+  --surface: #222a25;
+  --surface-secondary: #1d241f;
+  --surface-hover: #303c34;
+
+  --table-border: #38453d;
+  --table-hover: #29382e;
+  --table-header-text: #c2efd2;
+
+  --button-text: #101b13;
+  --error: #ff8585;
+  --shadow: rgb(0 0 0 / 20%);
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.topbar,
+.sheet-panel {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.topbar {
+  border-bottom-color: var(--border);
+}
+
+.sheet-panel {
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.brand p,
+.sheet-footer,
+.message {
+  color: var(--muted);
+}
+
+.excel-icon {
+  background: var(--green);
+  color: white;
+}
+
+.download-btn {
+  background: var(--green);
+  color: var(--button-text);
+}
+
+.download-btn:hover {
+  filter: brightness(0.9);
+}
+
+/* Onglets */
+
+.sheet-tabs,
+.sheet-footer {
+  background: var(--surface-secondary);
+}
+
+.sheet-tabs {
+  border-bottom-color: var(--border);
+}
+
+.sheet-tab {
+  color: var(--muted);
+}
+
+.sheet-tab:hover {
+  background: var(--surface-hover);
+}
+
+.sheet-tab.active {
+  background: var(--surface);
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+/* Tableau Excel */
+
+.excel-table td,
+.excel-table th {
+  border-color: var(--table-border);
+  color: var(--text);
+}
+
+.excel-table tr:first-child td,
+.excel-table tr:first-child th {
+  background: var(--green-light);
+  color: var(--table-header-text);
+}
+
+.excel-table tr:hover td {
+  background-color: var(--table-hover);
+}
+
+/* Compteurs */
+
+.sheet-count,
+.row-count {
+  color: var(--green);
+}
+
+/* Erreurs */
+
+.error {
+  color: var(--error);
+}
+
+/* Bouton de changement de thème */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+/* Barre supérieure responsive */
+
+@media (max-width: 1023px) {
+  .topbar {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand h1 {
+    font-size: 16px;
+  }
+
+  .topbar-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .download-btn,
+  .theme-toggle {
+    flex: 1;
+    text-align: center;
+  }
+}

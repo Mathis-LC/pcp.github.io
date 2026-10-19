@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portefeuille de compétences professionnelles</title>
+
+    <link rel="stylesheet" href="../../../../../static/styles/excel.css">
+    <link rel="stylesheet" href="../../../../../static/styles/theme-excel.css">
+
+    <link rel="icon" type="image/png" href="../../../../../static/icones/icone-site.png">
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+    <script src="./tstw3_v1.js" defer></script>
+    <script src="../../../../../static/js/theme-excel.js" defer></script>
+  </head>
+
+  <body>
+
+    <header class="topbar">
+
+      <div class="brand">
+
+        <div class="excel-icon" aria-hidden="true">
+          X
+        </div>
+
+        <div>
+          <h1>Inventaire Matériel TSTW3</h1>
+          <p>Consultation des données</p>
+        </div>
+
+      </div>
+
+      <div class="topbar-actions">
+
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activer le thème sombre" aria-pressed="false">
+          🌙
+        </button>
+
+        <a class="download-btn" href="./tstw3_v1.xlsx" download>
+          Télécharger ce fichier
+        </a>
+
+      </div>
+
+    </header>
+
+    <main class="workspace">
+
+      <section class="sheet-panel" aria-label="Inventaire matériel">
+
+        <nav id="sheet-tabs" class="sheet-tabs" aria-label="Feuilles du classeur"></nav>
+
+        <div id="table-container" class="table-container" aria-live="polite">
+          <p class="message">
+            Chargement des données...
+          </p>
+        </div>
+
+        <footer class="sheet-footer">
+
+          <span id="sheet-count" class="sheet-count">
+            0 feuille
+          </span>
+
+          <span id="row-count" class="row-count">
+            0 ligne
+          </span>
+
+        </footer>
+
+      </section>
+
+    </main>
+
+  </body>
+</html>

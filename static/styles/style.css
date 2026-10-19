@@ -27,7 +27,6 @@ body {
 
 
 /* Ce CSS permet de personnaliser la couleur du bouton du menu mobile et de conserver cette couleur au survol et lorsque le menu est ouvert. */
-
 .navbar-burger {
     color: var(--bulma-success) !important;
 }
@@ -44,7 +43,6 @@ body {
 
 
 /* Ce CSS permet d'afficher les sous-menus de la navbar au survol sur ordinateur. */
-
 @media screen and (min-width: 1024px) {
 
     .navbar-item.has-dropdown:hover .dropdown-menu {
@@ -54,7 +52,6 @@ body {
 
 
 /* Ce CSS permet de gérer les sous-menus de la navbar sur téléphone. */
-
 @media screen and (max-width: 1023px) {
 
     .navbar-item.has-dropdown .dropdown-menu {
@@ -76,7 +73,6 @@ body {
 
 
 /* Ce CSS permet d’indiquer que les images sont cliquables sur téléphone. */
-
 @media screen and (max-width: 1023px) {
 
     .image-clickable {
@@ -91,39 +87,7 @@ body {
     }
 }
 
-.cli-output {
-    padding: 0;
-    overflow: hidden;
-    background-color: #1e1e1e;
-}
-
-.cli-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
-    background-color: var(--bulma-dark) !important;
-    color: var(--bulma-white) !important;
-    font-size: 0.8rem;
-}
-
-.cli-status {
-    width: 10px;
-    height: 10px;
-    background-color: var(--bulma-success) !important;
-    border-radius: 50%;
-}
-
-.cli-output pre {
-    margin: 0;
-    padding: 20px;
-    background-color: transparent;
-    color: var(--bulma-white) !important;
-    overflow-x: auto;
-}
-
-.cli-output code {
-    color: var(--bulma-white) !important;
-    font-family: Consolas, Monaco, "Courier New", monospace;
-    font-size: 0.9rem;
+abbr {
+    text-decoration: none;
+    color: var(--bulma-info) !important;
 }

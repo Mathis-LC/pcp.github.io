@@ -1,0 +1,233 @@
+:root {
+  --green: #217346;
+  --green-light: #e2f0e8;
+  --border: #d9e0dc;
+  --text: #24332b;
+  --muted: #6c7a72;
+  --background: #f3f6f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: var(--background);
+}
+
+/* Barre supérieure */
+
+.topbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 28px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.excel-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--green);
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.download-btn {
+  background: var(--green);
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 15px;
+  border-radius: 6px;
+}
+
+.download-btn:hover {
+  background: #185c36;
+}
+
+/* Zone principale */
+
+.workspace {
+  max-width: 1500px;
+  margin: 26px auto;
+  padding: 0 24px;
+}
+
+/* Panneau du classeur */
+
+.sheet-panel {
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  box-shadow: 0 4px 16px rgb(25 55 35 / 5%);
+}
+
+/* Onglets des feuilles */
+
+.sheet-tabs {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  min-height: 45px;
+  padding: 0 12px;
+  background: #f7f9f7;
+  border-bottom: 1px solid var(--border);
+}
+
+.sheet-tab {
+  flex: 0 0 auto;
+  padding: 13px 18px 11px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #657168;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sheet-tab:hover {
+  background: #edf3ef;
+}
+
+.sheet-tab.active {
+  background: white;
+  color: var(--green);
+  border-bottom-color: var(--green);
+  font-weight: 700;
+}
+
+/* Tableau Excel */
+
+.table-container {
+  overflow: auto;
+  max-height: 72vh;
+  min-height: 300px;
+}
+
+.excel-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: max-content;
+  min-width: 100%;
+  font-size: 13px;
+}
+
+.excel-table td,
+.excel-table th {
+  height: 34px;
+  min-width: 105px;
+  max-width: 360px;
+  padding: 7px 12px;
+  border-right: 1px solid #e1e7e3;
+  border-bottom: 1px solid #e1e7e3;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+}
+
+.excel-table tr:first-child td,
+.excel-table tr:first-child th {
+  background: var(--green-light);
+  font-weight: 700;
+  color: #204d34;
+}
+
+.excel-table tr:hover td {
+  background-color: #f3f9f5;
+}
+
+.excel-table td:empty::after {
+  content: "";
+  display: inline-block;
+  min-width: 20px;
+}
+
+/* Pied de tableau : compteurs */
+
+.sheet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  background: #f7f9f7;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.sheet-count{
+  color:#217346;
+  font-weight: bold;
+}
+
+.row-count{
+  color:#217346;
+  font-weight: bold;
+}
+
+/* Messages de chargement et d'erreur */
+
+.message {
+  padding: 24px;
+  color: var(--muted);
+}
+
+.error {
+  color: #a52222;
+}
+
+/* Adaptation aux petits écrans */
+
+@media (max-width: 1023px) {
+  .topbar {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .download-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .workspace {
+    margin: 16px auto;
+    padding: 0 10px;
+  }
+
+  .table-container {
+    max-height: 68vh;
+  }
+}
